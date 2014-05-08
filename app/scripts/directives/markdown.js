@@ -1,7 +1,6 @@
-'use strict';
-
 angular.module('directives').
 directive('markdown', ['$window', 'Formatter', function ($window, Formatter) {
+  'use strict';
 
   $window.marked.setOptions({
     renderer: new $window.marked.Renderer(),

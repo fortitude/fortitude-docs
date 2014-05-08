@@ -1,6 +1,5 @@
-'use strict';
-
 angular.module('services').factory('Formatter', ['$window', function($window) {
+  'use strict';
 
   function convert(string) {
     var html = '',

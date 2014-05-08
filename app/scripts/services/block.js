@@ -1,6 +1,5 @@
-'use strict';
-
 angular.module('services').factory('Block', ['$q', '$http', function($q, $http) {
+  'use strict';
 
   function fetch(url) {
     var deferred = new $q.defer();

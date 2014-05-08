@@ -1,6 +1,6 @@
 {
-  "name": "docs",
-  "version": "0.0.0",
+  "name": "fortitude-docs",
+  "version": "0.1.1",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -27,9 +27,9 @@
     "jshint-stylish": "~0.1.3",
     "load-grunt-tasks": "~0.4.0",
     "time-grunt": "~0.2.1",
-    "karma-ng-scenario": "^0.1.0",
     "grunt-karma": "^0.8.3",
     "karma": "^0.12.14",
+    "karma-ng-scenario": "^0.1.0",
     "karma-ng-html2js-preprocessor": "^0.1.0",
     "karma-jasmine": "^0.1.5",
     "karma-chrome-launcher": "^0.1.3"
@@ -39,5 +39,26 @@
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "description": "fortitude-docs ==============",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fortitude/fortitude-docs.git"
+  },
+  "keywords": [
+    "fortitude",
+    "scss",
+    "framework",
+    "docs"
+  ],
+  "author": "Aaron Reisman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fortitude/fortitude-docs/issues"
+  },
+  "homepage": "https://github.com/fortitude/fortitude-docs"
 }

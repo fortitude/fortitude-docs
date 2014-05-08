@@ -1,7 +1,7 @@
-'use strict';
-
 angular.module('directives').
 directive('codePreview', ['Formatter', '$window', function (Formatter, $window) {
+  'use strict';
+
   function linker(scope, element, attrs) {
     var $code = $window.$('<code />'),
     $pre = $window.$('<pre />');

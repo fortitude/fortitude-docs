@@ -1,5 +1,3 @@
-'use strict';
-
 angular
   .module('docsApp', [
     'ngCookies',
@@ -12,6 +10,8 @@ angular
     'services'
   ])
   .config(function ($routeProvider) {
+    'use strict';
+
     $routeProvider
       .when('/generator', {
         templateUrl: 'views/generator.html',
