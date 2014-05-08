@@ -1,0 +1,11 @@
+.navigationbar--example {
+  background-color: #bada55;
+}
+
+.navigationbar--example a {
+  color: #ffffff;
+}
+
+.navigationbar--example .navigationbar__header__toggle {
+  padding: 1rem 0.9rem;
+}

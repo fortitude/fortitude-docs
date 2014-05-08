@@ -1,0 +1,16 @@
+.tabs--example {
+  background-color: #bada55;
+}
+
+.tabs--example a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.tabs--example .tabs__item--is-active {
+  background-color: #ffffff;
+}
+
+.tabs--example .tabs__item--is-active a {
+  color: #bada55;
+}

@@ -305,6 +305,8 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
+            '.nojekyll',
+            'CNAME',
             '*.html',
             'styles/vendor.css',
             'views/**/*.{html,md,css}',
