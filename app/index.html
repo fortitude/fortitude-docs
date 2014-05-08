@@ -1,0 +1,100 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <link rel="stylesheet" href="styles/vendor.css">
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/app.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="docsApp">
+    <!--[if lt IE 9]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="navigationbar navigationbar--primary navigationbar--fixed-top" data-ng-class="{'navigationbar--collapsed': isCollapsed}" data-ng-controller="ApplicationNavigationController">
+      <div class="container">
+        <div class="navigationbar__header">
+          <a class="navigationbar__header__logo" href="/" target="_self">Fortitude</a>
+          <a class="navigationbar__header__toggle" data-ng-click="isCollapsed = !isCollapsed">
+            <img alt="Toggle Menu" class="icon icon--menu" height="16" src="images/spacer.gif" width="20">
+          </a>
+        </div>
+        <nav class="collapse navigationbar__collapse" data-collapse="isCollapsed">
+          <ul class="navigation navigationbar__navigation navigationbar__navigation--right">
+            <li class="navigation__item" data-ng-class="{'navigation__item--is-active': path === '/generator'}">
+              <a class="navigation__link navigation__link--component-generator" data-ng-href="#generator">Component Generator</a>
+            </li>
+            <li class="navigation__item" data-ng-class="{'navigation__item--is-active': path === '/documentation'}">
+              <a class="navigation__link navigation__link--documentation" data-ng-href="#documentation">Documentation</a>
+            </li>
+            <li class="navigation__item" data-ng-class="{'navigation__item--is-active': path === '/architecture'}">
+              <a class="navigation__link navigation__link--architecture" data-ng-href="#architecture">Architecture</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="xs-pt2"></div>
+
+    <!-- Add your site or application content here -->
+    <div data-ng-view class="view-animate"></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="bower_components/marked/lib/marked.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers.js"></script>
+        <script src="scripts/controllers/application-navigation.js"></script>
+        <script src="scripts/controllers/application.js"></script>
+        <script src="scripts/controllers/extension-generator.js"></script>
+        <script src="scripts/directives.js"></script>
+        <script src="scripts/directives/fortitude/transition.js"></script>
+        <script src="scripts/directives/fortitude/collapse.js"></script>
+        <script src="scripts/directives/code-preview.js"></script>
+        <script src="scripts/directives/inject.js"></script>
+        <script src="scripts/directives/markdown.js"></script>
+        <script src="scripts/services.js"></script>
+        <script src="scripts/services/block.js"></script>
+        <script src="scripts/services/formatter.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

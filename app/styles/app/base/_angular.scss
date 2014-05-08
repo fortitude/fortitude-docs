@@ -1,0 +1,24 @@
+$view-perspective: 1300px;
+.view-animate {
+  width: 100%;
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+  transition: 500ms;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.view-animate.ng-enter {
+  transform: perspective($view-perspective) translateX(100%);
+}
+.view-animate.ng-leave {
+  transform: perspective($view-perspective) translateX(0%);
+}
+
+.view-animate.ng-enter.ng-enter-active {
+  transform: perspective($view-perspective) translateX(0%);
+}
+.view-animate.ng-leave.ng-leave-active {
+  transform: perspective($view-perspective) translateX(-100%);
+}

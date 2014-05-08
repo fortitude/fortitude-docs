@@ -1,0 +1,9 @@
+.tabs--docs {
+  background-color: $brand-blue;
+  a { color: $brand-white; text-decoration: none; display: block; }
+
+  .tabs__item--is-active {
+    background-color: $brand-white;
+    a { color: $brand-blue; }
+  }
+}

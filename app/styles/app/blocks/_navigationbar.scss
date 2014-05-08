@@ -1,0 +1,42 @@
+.navigationbar--primary {
+  background-color: $brand-teal;
+
+  .navigationbar__header__toggle {
+    padding: component-padding($navigationbar-height - double($navigationbar-border-width)) component-padding($navigationbar-height, convert-to-rem(image-width("icon/menu.png")));
+  }
+
+  .navigation__item--is-active {
+    .navigation__link {
+      background-color: shade($brand-teal, 25%);
+    }
+  }
+
+  .navigation__link {
+    &:hover {
+      background-color: tint($brand-teal, 25%);
+    }
+  }
+
+  a {
+    color: $brand-white;
+  }
+}
+
+.navigationbar--docs {
+  background-color: $brand-blue;
+
+  .navigationbar__header__toggle {
+    padding: component-padding($navigationbar-height - double($navigationbar-border-width)) component-padding($navigationbar-height, convert-to-rem(image-width("icon/menu.png")));
+  }
+
+  .navigation__link {
+    &:hover {
+      background-color: $brand-white;
+      color: $brand-black;
+    }
+  }
+
+  a {
+    color: $brand-white;
+  }
+}

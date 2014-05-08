@@ -1,0 +1,18 @@
+.field--required {
+  .label {
+    &::after {
+      content: ' *';
+      color: $brand-orange;
+    }
+  }
+}
+
+
+.field--docs {
+  .input {
+    border-color: $brand-blue;
+  }
+  .field__message {
+    color: $brand-blue;
+  }
+}

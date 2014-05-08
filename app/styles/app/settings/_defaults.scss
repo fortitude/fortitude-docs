@@ -1,0 +1,7 @@
+@import "../bower_components/fortitude-sass/app/assets/stylesheets/fortitude/tools/_functions.scss";
+@import "../bower_components/fortitude-sass/app/assets/stylesheets/fortitude/settings/_defaults.scss";
+@import "colors";
+
+$icon-sprite-map: sprite-map("icon/*.png");
+$icon-sprite-map-2x: sprite-map("icon_2x/*.png");
+$icon-sprite-names: sprite-names($icon-sprite-map);

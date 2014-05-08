@@ -1,0 +1,28 @@
+.icon {
+  background: transparent $icon-sprite-map no-repeat 0 0;
+  display: inline-block;
+  position: relative;
+
+  .hidpi & {
+    background: transparent $icon-sprite-map-2x no-repeat 0 0;
+  }
+}
+
+.icon__target {
+  cursor: pointer;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+@each $name in $icon-sprite-names {
+  .icon--#{$name} {
+    @include sprite-image($name, $icon-sprite-map, $icon-sprite-map-2x);
+  }
+}

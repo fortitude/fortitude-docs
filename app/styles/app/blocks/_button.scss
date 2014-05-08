@@ -1,0 +1,25 @@
+.button--primary {
+  background-color: $brand-teal;
+  color: $brand-white;
+
+  &:hover {
+    background-color: tint($brand-teal, 25%);
+  }
+
+  &:active {
+    background-color: shade($brand-teal, 25%);
+  }
+}
+
+.button--docs {
+  background-color: $brand-blue;
+  color: $brand-white;
+
+  &:hover {
+    background-color: tint($brand-blue, 25%);
+  }
+
+  &:active {
+    background-color: shade($brand-blue, 25%);
+  }
+}
