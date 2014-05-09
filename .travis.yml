@@ -2,9 +2,13 @@ language: node_js
 node_js:
   - '0.10'
 before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y git
   - 'gem install compass'
   - 'export DISPLAY=:99.0'
   - 'sh -e /etc/init.d/xvfb start'
 before_script:
   - 'npm install -g bower grunt-cli'
   - 'bower install'
+after_success:
+  - git push origin `git subtree split --prefix dist master`:gh-pages --force
