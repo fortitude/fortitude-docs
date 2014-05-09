@@ -1,6 +1,5 @@
-fortitude-docs
+fortitude-docs [![Build Status](https://travis-ci.org/fortitude/fortitude-docs.svg?branch=master)](https://travis-ci.org/fortitude/fortitude-docs)
 ==============
-
 Read The Docs!
 
 
