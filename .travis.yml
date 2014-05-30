@@ -2,9 +2,10 @@ language: node_js
 node_js:
   - '0.10'
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y git
-  - 'gem install compass'
+  - sudo add-apt-repository ppa:git-core/ppa -y
+  - sudo apt-get update
+  - sudo apt-get install git -y
+  - 'bundle'
   - 'export DISPLAY=:99.0'
   - 'sh -e /etc/init.d/xvfb start'
 before_script:
