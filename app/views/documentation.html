@@ -98,6 +98,32 @@
         </div>
       </div>
       <div class="layout__item xs-mb2">
+        <h2 class="xs-beta xs-mbh0">Container</h2>
+        <div class="content--markdown xs-mb1" data-markdown>
+          * A `container` element wraps your content and sizes it according to [your breakpoint settings](https://github.com/fortitude/fortitude-sass/blob/master/app/assets/stylesheets/fortitude/settings/_defaults.scss#L130)
+          * The `container-fluid` class works like `container` but with no breakpoints, resizing constantly.
+          * The `container--fixed-top` modifier fixes your container to the top of the screen.
+        </div>
+        <div class="layout">
+          <div class="layout__item">
+            <div class="field">
+              <label class="label label--block text-medium">Code</label>
+              <div class="content--markdown xs-mb1" data-code-preview="html">
+                <div class="container">
+                  I am the page's content, centered within the viewport, resizing at breakpoints.
+                </div>
+                <div class="container-fluid">
+                  I am the page's content, centered within the viewport, resizing constantly (no breakpoints).
+                </div>
+                <div class="container--fixed-top">
+                  I am the page's content, centered within the viewport, and fixed to the top of the page.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layout__item xs-mb2">
         <h2 class="xs-beta xs-mbh0">Field</h2>
         <div class="content--markdown xs-mb1" data-markdown>
           The `field` object is used to wrap inputs into.
