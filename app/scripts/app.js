@@ -13,6 +13,10 @@ angular
     'use strict';
 
     $routeProvider
+      .when('/', {
+        templateUrl: 'views/landing.html',
+        controller: 'ApplicationController'
+      })
       .when('/generator', {
         templateUrl: 'views/generator.html',
         controller: 'ExtensionGeneratorController'
@@ -26,6 +30,6 @@ angular
         controller: 'ApplicationController'
       })
       .otherwise({
-        redirectTo: '/generator'
+        redirectTo: '/'
       });
   });

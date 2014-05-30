@@ -10,11 +10,18 @@ html {
 }
 
 a {
-  color: #037E8C;
+  color: $brand-links;
   text-decoration: none;
   &:hover {
-  	color: #025E69;
-  	text-decoration: underline;
+    color: shade($brand-links, 25%);
+    text-decoration: underline;
   }
 
+}
+
+code {
+  border: 1px solid $brand-yellow;
+  background-color: $brand-yellow;
+  color: $brand-black;
+  padding: 0.2rem;
 }
