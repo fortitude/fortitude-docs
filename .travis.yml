@@ -1,15 +1,27 @@
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
 before_install:
-  - sudo add-apt-repository ppa:git-core/ppa -y
-  - sudo apt-get update
-  - sudo apt-get install git -y
-  - 'bundle'
-  - 'export DISPLAY=:99.0'
-  - 'sh -e /etc/init.d/xvfb start'
+- sudo add-apt-repository ppa:git-core/ppa -y
+- sudo apt-get update
+- sudo apt-get install git -y
+- bundle
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 before_script:
-  - 'npm install -g bower grunt-cli'
-  - 'bower install'
+- git config --global user.email "aaron@hired.com"
+- git config --global user.name "lifeiscontent"
+- npm install -g bower grunt-cli
+- bower install
 after_success:
-  - git push origin `git subtree split --prefix dist refs/master`:gh-pages --force
+- git subtree split --prefix=dist -b split
+- git remote rm origin
+- git remote add origin https://fortitude:${GH_TOKEN}@github.com/fortitude/fortitude-docs.git
+- git push origin split:gh-pages --force
+env:
+  global:
+    secure: a5eB6iSfOQrt58gnm0eA11px+bGB3JQctZ+IgPvaFDq3PsFtUuKOARJjRY3nuumJQQ9Tk3Ft4TeGH77ht1/MytEYD4h8Uwpk92+mw6LHUQZTtZdcaW5fdnK2XKBODsv8c5kWgXT/1gESgcXZ+dWPOZ7vFOBxCbxs6gxgwd5tXA8=
+notifications:
+  email:
+    recipients:
+      - aaron@hired.com
