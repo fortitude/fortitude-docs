@@ -8,3 +8,13 @@
 html {
   overflow-x: hidden;
 }
+
+a {
+  color: #037E8C;
+  text-decoration: none;
+  &:hover {
+  	color: #025E69;
+  	text-decoration: underline;
+  }
+
+}
