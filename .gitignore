@@ -2,3 +2,8 @@ node_modules
 .tmp
 .sass-cache
 app/bower_components
+<<<<<<< HEAD
+=======
+
+.DS_Store
+>>>>>>> 699c1c0... Ignoring all .DS_Store files
