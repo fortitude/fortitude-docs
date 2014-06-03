@@ -13,6 +13,7 @@ before_script:
 - git config --global user.name "lifeiscontent"
 - npm install -g bower grunt-cli
 - bower install
+- grunt
 after_success:
 - git subtree split --prefix=dist -b split
 - git remote rm origin
