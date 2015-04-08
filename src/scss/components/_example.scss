@@ -1,0 +1,26 @@
+.example {
+  margin-bottom: 2rem;
+}
+
+.example__preview {
+  padding: 2rem;
+}
+
+.example__code {
+  padding: 2rem;
+}
+
+.example__background {
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  transition: all 0.5s ease;
+}
+
+.example__background--grow-on-hover:hover {
+    padding: 8rem 6rem;
+}
+
+.example__background--tall {
+    padding: 8rem 4rem;
+}

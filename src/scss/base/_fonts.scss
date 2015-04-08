@@ -1,0 +1,10 @@
+@include font-face(
+  "Source Sans Pro",
+  inline-font-files(
+    "SourceSansPro-Regular-webfont.woff", woff,
+    "SourceSansPro-Regular-webfont.ttf", ttf,
+    "SourceSansPro-Regular-webfont.svg", svg),
+  "SourceSansPro-Regular-webfont.eot",
+  normal, // font-weight
+  normal  // font-style
+);

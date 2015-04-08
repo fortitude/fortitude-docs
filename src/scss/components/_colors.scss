@@ -1,0 +1,20 @@
+$color-height: 4rem;
+
+.colors {
+  @include fortitude-bare-list;
+  display: block;
+}
+
+.color {
+  font-weight: 500;
+  letter-spacing: .0056rem;
+  margin: component-margin($color-height) 0;
+  min-height: $color-height;
+  padding: component-padding($color-height);
+  text-transform: uppercase;
+
+  &::before {
+    display: block;
+    white-space: pre;
+  }
+}

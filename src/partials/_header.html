@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Fortitude<%= " | #{title}" unless title.empty? %></title>
+    <link rel="stylesheet" href="./stylesheets/index.css">
+    <!-- <link rel="stylesheet" href="http://basehold.it/10"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  </head>
+  <body>
+    <header class="container--fixed-top fluid-container">
+      <nav class="navigationbar js-navigationbar navigationbar--default" data-ft-navigationbar>
+        <div class="container clearfix">
+          <div class="navigationbar__header">
+            <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
+            <label class="navigationbar__label" for="navigationbar-toggle">
+              <i class="fa fa-bars"></i>
+            </label>
+            <button class="button xs-float-right" id="grid-toggle-button">
+              <i class="fa fa-eye-slash" style="vertical-align: middle;"></i>
+            </button>
+          </div>
+          <nav class="navigationbar__nav clearfix xs-text-right">
+            <input class="navigationbar__toggle" type="checkbox" id="navigationbar-toggle" data-ft-navigationbar-toggle>
+            <ul class="navigationbar__list xs-float-left">
+              <% @categories.each do |category, file_name| %>
+              <li class="navigationbar__item">
+                <a href="<%= file_name %>" class="navigationbar__link"><%= category %></a>
+                <ul class="navigationbar__dropdown">
+                  <li>
+                    <a href="#" class="navigationbar__link"><%= category %> Item 1</a>
+                  </li>
+                  <li>
+                    <a href="#" class="navigationbar__link"><%= category %> Item 2</a>
+                  </li>
+                </ul>
+              </li>
+              <% end %>
+              <li class="navigationbar__item">
+                <a href="architecture.html" class="navigationbar__link">Architecture</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </nav>
+    </header>
+
+    <% unless file_name == 'index.html' %>
+    <% parent_blocks = @blocks.select { |b| b[:children] = nil; b[:parent].nil? } %>
+    <% @blocks.reject { |b| b[:parent].nil? }.each { |b| parent_blocks.find { |pb| pb[:name] == b[:parent].get_hash[:name] }[:children] = b[:parent].children.keys } %>
+
+    <% if parent_blocks.any? %>
+    <label for="sections-off-canvas-toggle" class="page-nav">
+      <i class="fa fa-plus-circle text--info"></i> <span class="text--uppercase xs-epsilon"><%= title %> nav</span>
+    </label>
+
+    <div class="off-canvas off-canvas--sections">
+      <input type="checkbox" tabindex="0" class="off-canvas__toggle" id="sections-off-canvas-toggle" />
+      <nav class="off-canvas__navigation">
+        <label class="off-canvas__close" for="sections-off-canvas-toggle">&times;</label>
+        <div class="off-canvas__scrollable">
+          <ul>
+            <li class="text--uppercase xs-epsilon xs-mb1"><%= title %> nav</li>
+            <% parent_blocks.each do |block| %>
+            <li>
+              <a href="#<%= block[:name] %>"><%= block[:title] %></a>
+              <% unless block[:children].nil? %>
+              <ul>
+                <% block[:children].each do |child| %>
+                <% child = @blocks.find { |b| b[:name] == child } %>
+                <li>
+                  <a href="#<%= child[:name] %>"><%= child[:title] %></a>
+                </li>
+                <% end %>
+              </ul>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <% end %>
+    <div class="container">
+      <section class="content">
+    <% end %>

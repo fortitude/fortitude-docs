@@ -1,0 +1,79 @@
+h1.styleguide,
+h2.styleguide,
+h3.styleguide,
+p.styleguide,
+table.styleguide {
+  margin-right: 2 * $base-spacing-unit;
+  margin-bottom: 2 * $base-spacing-unit;
+  margin-left: 2 * $base-spacing-unit;
+}
+
+h1.styleguide,
+h2.styleguide,
+h3.styleguide {
+  line-height: 4 * $base-spacing-unit;
+  padding-top: 6 * $base-spacing-unit;
+}
+
+@include breakpoint("sm") {
+  h1.styleguide,
+  h2.styleguide,
+  h3.styleguide,
+  p.styleguide,
+  table.styleguide {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+p.styleguide {
+  margin-bottom: $base-spacing-unit;
+}
+
+ul.styleguide {
+  > li {
+    margin-bottom: 1rem;
+  }
+}
+
+code.styleguide {
+  background-color: transparentize(map-get($colors, "black"), 0.96);
+  display: inline-block;
+  vertical-align: top;
+
+  &::before,
+  &::after {
+    content: "\00a0";
+    letter-spacing: -0.2rem;
+  }
+}
+
+
+table.styleguide {
+  @include fortitude-table(4rem, 0.1rem, solid);
+}
+
+
+
+.page-nav {
+  font-size: 2.4rem;
+  left: 1rem;
+  position: fixed;
+  top: 5rem;
+  z-index: 1;
+
+  > i {
+    vertical-align: middle;
+    &::after {
+      background-color: map-get($colors, "white");
+      border-radius: 100rem;
+      content: "";
+      display: inline-block;
+      height: 1.6rem;
+      left: -2rem;
+      position: relative;
+      width: 1.6rem;
+      z-index: -1;
+    }
+  }
+}

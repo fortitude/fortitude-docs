@@ -1,0 +1,26 @@
+.content > {
+  h1 {
+    box-shadow: 0 0.1rem 0 0 map-get($colors, "gray-light");
+  }
+
+  table.styleguide {
+    tr {
+      th,
+      td {
+        border-color: map-get($colors, "gray-light");
+      }
+
+      th {
+        background-color: map-get($colors, "gray-light");
+      }
+
+      td {
+        background-color: map-get($colors, "gray-lighter");
+      }
+    }
+  }
+}
+
+.section-nav {
+  display: none;
+}

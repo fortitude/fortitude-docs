@@ -1,0 +1,14 @@
+/* FONT PATH
+ * -------------------------- */
+
+@import "compass/css3/font-face";
+@include font-face(
+  "FontAwesome",
+  inline-font-files(
+    "#{$fa-font-path}/fontawesome-webfont.woff", woff,
+    "#{$fa-font-path}/fontawesome-webfont.ttf", ttf,
+    "#{$fa-font-path}/fontawesome-webfont.svg", svg),
+  "#{$fa-font-path}/fontawesome-webfont.eot",
+  normal, // font-weight
+  normal  // font-style
+);

@@ -1,0 +1,62 @@
+.off-canvas--sections {
+  position: relative;
+
+  .off-canvas__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2.4rem;
+    z-index: 1;
+  }
+
+  .off-canvas__navigation {
+    background-color: map-get($colors, "white");
+    bottom: 0;
+    display: inline-block;
+    left: -28rem;
+    position: fixed;
+    width: 28rem;
+    top: 4rem;
+    transition: transform 0.4s ease-in-out;
+    transform: translate3d(0,0,0);
+    z-index: 1;
+  }
+
+  .off-canvas__scrollable {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    -ms-overflow-scrolling: touch;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    ul {
+      display: block;
+      list-style: none;
+    }
+
+    li {
+      margin: 1rem 0;
+
+      ul {
+        list-style: disc;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 1.4rem;
+      
+      &:hover {
+        color: map-get($colors, "blue");
+      }
+    }
+  }
+
+  :checked ~ .off-canvas__navigation {
+    transform: translate3d(28rem,0,0);
+  }
+}

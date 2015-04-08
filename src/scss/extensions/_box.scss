@@ -1,0 +1,15 @@
+.box--styleguide {
+  background-color: map-get($colors, "blue");
+  color: map-get($colors, "white");
+  box-shadow: inset 0 0 0 0.1rem shade(map-get($colors, "blue"), 20%);
+  padding: 1rem;
+  transition: padding 0.5s ease;
+}
+
+.box--styleguide--tall {
+  min-height: 12rem;
+}
+
+.box--styleguide--grow-on-hover:hover {
+  padding: 8rem 6rem;
+}

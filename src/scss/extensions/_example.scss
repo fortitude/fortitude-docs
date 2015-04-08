@@ -1,0 +1,21 @@
+.example {
+  box-shadow: 0 0 0 0.1rem map-get($colors, "gray-light");
+}
+
+.example__preview {
+  background-color: map-get($colors, "gray-light");
+
+  + .example__code {
+    box-shadow: inset 0 0.1rem 0 0 map-get($colors, "gray-light");
+  }
+}
+
+.example__code {
+  background-color: map-get($colors, "gray-lighter");
+}
+
+.example__background {
+  background-color: map-get($color-intents, "primary");
+  box-shadow: inset 0 0 0 0.1rem shade(map-get($color-intents, "primary"), 20%);
+  color: map-get($colors, "white");
+}

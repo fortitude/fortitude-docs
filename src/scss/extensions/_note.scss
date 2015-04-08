@@ -1,0 +1,6 @@
+@each $intent, $color in $color-intents {
+  .note--#{$intent} {
+    background-color: $color;
+    color: map-get($colors, "white");
+  }
+}

@@ -1,0 +1,50 @@
+/*doc
+---
+title: Colors
+name: colors
+category: Objects
+---
+<div class="example">
+  <div class="example__preview">
+    <div class="layout">
+      <div class="layout__item sm-3of12">
+        <ul class="colors">
+          <li class="color color--black"></li>
+          <li class="color color--gray-darker"></li>
+          <li class="color color--gray-dark"></li>
+        </ul>
+      </div><div class="layout__item sm-3of12">
+        <ul class="colors">
+          <li class="color color--gray"></li>
+          <li class="color color--gray-light"></li>
+          <li class="color color--gray-lighter"></li>
+        </ul>
+      </div><div class="layout__item sm-3of12">
+        <ul class="colors">
+          <li class="color color--white"></li>
+          <li class="color color--blue"></li>
+          <li class="color color--green"></li>
+        </ul>
+      </div><div class="layout__item sm-3of12">
+        <ul class="colors">
+          <li class="color color--teal"></li>
+          <li class="color color--yellow"></li>
+          <li class="color color--red"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+*/
+
+
+@each $key, $value in $colors {
+  .color--#{$key} {
+    background-color: $value;
+    color: if(lightness($value) > 75%, map-get($colors, "black"), map-get($colors, "white"));
+
+    &::before {
+      content: "#{$key}\A#{$value}";
+    }
+  }
+}
