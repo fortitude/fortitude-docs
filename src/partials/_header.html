@@ -9,35 +9,26 @@
   </head>
   <body>
     <header class="container--fixed-top fluid-container">
-      <nav class="navigationbar js-navigationbar navigationbar--default" data-ft-navigationbar>
+      <nav class="navigationbar navigationbar--default" data-ft-navigationbar>
         <div class="container clearfix">
-          <div class="navigationbar__header">
+          <div class="navigationbar__header clearfix">
             <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
-            <label class="navigationbar__label" for="navigationbar-toggle">
+            <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
               <i class="fa fa-bars"></i>
-            </label>
-            <button class="button xs-float-right" id="grid-toggle-button">
-              <i class="fa fa-eye-slash" style="vertical-align: middle;"></i>
+            </button>
+            <button class="button xs-float-right sm-float-none" id="grid-toggle-button">
+              <i class="fa fa-eye-slash"></i>
             </button>
           </div>
-          <nav class="navigationbar__nav clearfix xs-text-right">
-            <input class="navigationbar__toggle" type="checkbox" id="navigationbar-toggle" data-ft-navigationbar-toggle>
-            <ul class="navigationbar__list xs-float-left">
+          <nav class="navigationbar__nav navigationbar__nav--is-hidden">
+            <ul class="navigationbar__list">
               <% @categories.each do |category, file_name| %>
               <li class="navigationbar__item">
                 <a href="<%= file_name %>" class="navigationbar__link"><%= category %></a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link"><%= category %> Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link"><%= category %> Item 2</a>
-                  </li>
-                </ul>
               </li>
               <% end %>
-              <li class="navigationbar__item">
-                <a href="architecture.html" class="navigationbar__link">Architecture</a>
+              <li class="navigationbar__item xs-prl1 sm-prl0">
+                <a href="architecture.html" class="button button--full button--primary">Architecture</a>
               </li>
             </ul>
           </nav>
@@ -82,5 +73,7 @@
     </div>
     <% end %>
     <div class="container">
-      <section class="content">
+      <div class="note note--danger xs-mt2">
+        This is not a 1.0 release. Things are moving at a fast pace, please note you might have some refactoring to do using this code.
+      </div>
     <% end %>

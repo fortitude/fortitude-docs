@@ -9,71 +9,38 @@
   </head>
   <body>
     <header class="container--fixed-top fluid-container">
-      <nav class="navigationbar js-navigationbar navigationbar--default" data-ft-navigationbar>
+      <nav class="navigationbar navigationbar--default" data-ft-navigationbar>
         <div class="container clearfix">
-          <div class="navigationbar__header">
+          <div class="navigationbar__header clearfix">
             <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
-            <label class="navigationbar__label" for="navigationbar-toggle">
+            <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
               <i class="fa fa-bars"></i>
-            </label>
-            <button class="button xs-float-right" id="grid-toggle-button">
-              <i class="fa fa-eye-slash" style="vertical-align: middle;"></i>
+            </button>
+            <button class="button xs-float-right sm-float-none" id="grid-toggle-button">
+              <i class="fa fa-eye-slash"></i>
             </button>
           </div>
-          <nav class="navigationbar__nav clearfix xs-text-right">
-            <input class="navigationbar__toggle" type="checkbox" id="navigationbar-toggle" data-ft-navigationbar-toggle>
-            <ul class="navigationbar__list xs-float-left">
+          <nav class="navigationbar__nav navigationbar__nav--is-hidden">
+            <ul class="navigationbar__list">
               
               <li class="navigationbar__item">
                 <a href="objects.html" class="navigationbar__link">Objects</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Objects Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Objects Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="structure.html" class="navigationbar__link">Structure</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Structure Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Structure Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="utilities.html" class="navigationbar__link">Utilities</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Utilities Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Utilities Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="javascript.html" class="navigationbar__link">Javascript</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Javascript Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Javascript Item 2</a>
-                  </li>
-                </ul>
               </li>
               
-              <li class="navigationbar__item">
-                <a href="architecture.html" class="navigationbar__link">Architecture</a>
+              <li class="navigationbar__item xs-prl1 sm-prl0">
+                <a href="architecture.html" class="button button--full button--primary">Architecture</a>
               </li>
             </ul>
           </nav>
@@ -144,46 +111,48 @@
     </div>
     
     <div class="container">
-      <section class="content">
+      <div class="note note--danger xs-mt2">
+        This is not a 1.0 release. Things are moving at a fast pace, please note you might have some refactoring to do using this code.
+      </div>
     
 <h1 id="js-flashbar" class="styleguide">Flashbar</h1>
 <p class="styleguide">Flashbars are used to inform a user of something after an action and can optionally be dismissed</p>
 <div class="note note--info">
-  <p class="styleguide">Flashbars don't need JavaScript by default, but if you want the close buttons to dismiss without an extra call to the server then you'll want to use the JS Component</p>
+  <p class="styleguide">Flashbars don't need JavaScript by default, but if you want the flashbar to dismiss without an extra call to the server then you'll want to use the JS Component</p>
   <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
   <ul class="styleguide">
     <li><code class="styleguide">data-ft-flashbar</code> on the <code class="styleguide">.flashbar</code> element</li>
-    <li><code class="styleguide">data-ft-flashbar-close</code> on the <code class="styleguide">.flashbar__close</code> element</li>
+    <li><code class="styleguide">data-ft-flashbar-hide</code> on the <code class="styleguide">.flashbar__hide</code> element</li>
   </ul>
 </div>
 <p class="styleguide">Below are some events you can listen to:</p><table class="styleguide"> <thead><tr>
-<th>event</th>
-<th>description</th>
+<th>Event</th>
+<th>Description</th>
 </tr>
 </thead> <tbody><tr>
-<td><code class="styleguide">open.ft.flashbar</code></td>
-<td>The flashbar is going to open</td>
+<td><code class="styleguide">show.ft.flashbar</code></td>
+<td>The flashbar is going to show</td>
 </tr>
 <tr>
-<td><code class="styleguide">opened.ft.flashbar</code></td>
-<td>The flashbar is opened</td>
+<td><code class="styleguide">shown.ft.flashbar</code></td>
+<td>The flashbar is shown</td>
 </tr>
 <tr>
-<td><code class="styleguide">close.ft.flashbar</code></td>
-<td>The flashbar is going to close</td>
+<td><code class="styleguide">hide.ft.flashbar</code></td>
+<td>The flashbar is going to hide</td>
 </tr>
 <tr>
-<td><code class="styleguide">closed.ft.flashbar</code></td>
-<td>The flashbar is closed</td>
+<td><code class="styleguide">hidden.ft.flashbar</code></td>
+<td>The flashbar is hidden</td>
 </tr>
 </tbody> </table><div class="example">
-  <!-- <script>$(document).on('open.ft.flashbar', '.flashbar', function(event) {
+  <!-- <script>$(document).on('show.ft.flashbar', '.flashbar', function(event) {
   // do some work
 });
 </script> -->
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'open.ft.flashbar'</span><span class="p">,</span> <span class="s1">'.flashbar'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.ft.flashbar'</span><span class="p">,</span> <span class="s1">'.flashbar'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// do some work</span>
 <span class="p">});</span></pre>
     </div>
@@ -194,63 +163,63 @@
 <th>Description</th>
 </tr>
 </thead> <tbody><tr>
-<td>flashbar--default</td>
+<td><code class="styleguide">flashbar--default</code></td>
 <td>This is a basic flashbar</td>
 </tr>
 <tr>
-<td>flashbar--primary</td>
+<td><code class="styleguide">flashbar--primary</code></td>
 <td>This is a flashbar for primary information</td>
 </tr>
 <tr>
-<td>flashbar--success</td>
+<td><code class="styleguide">flashbar--success</code></td>
 <td>This is a flashbar for success information</td>
 </tr>
 <tr>
-<td>flashbar--info</td>
+<td><code class="styleguide">flashbar--info</code></td>
 <td>This is a flashbar for sidenote information</td>
 </tr>
 <tr>
-<td>flashbar--warning</td>
+<td><code class="styleguide">flashbar--warning</code></td>
 <td>This is a flashbar for warning information</td>
 </tr>
 <tr>
-<td>flashbar--danger</td>
+<td><code class="styleguide">flashbar--danger</code></td>
 <td>This is a flashbar for destructive information</td>
 </tr>
 </tbody> </table><div class="example">
   <div class="example__preview">
     <div class="flashbar flashbar--default" data-ft-flashbar>
-  <button class="flashbar__close" data-ft-flashbar-close>&times;</button>
+  <button class="flashbar__hide" data-ft-flashbar-hide>&times;</button>
   <div class="fluid-container">
     Default
   </div>
 </div>
 <div class="flashbar flashbar--primary" data-ft-flashbar>
-  <button class="flashbar__close" data-ft-flashbar-close>&times;</button>
+  <button class="flashbar__hide" data-ft-flashbar-hide>&times;</button>
   <div class="fluid-container">
     Primary
   </div>
 </div>
 <div class="flashbar flashbar--success" data-ft-flashbar>
-  <button class="flashbar__close" data-ft-flashbar-close>&times;</button>
+  <button class="flashbar__hide" data-ft-flashbar-hide>&times;</button>
   <div class="fluid-container">
     Success
   </div>
 </div>
 <div class="flashbar flashbar--info" data-ft-flashbar>
-  <button class="flashbar__close" data-ft-flashbar-close>&times;</button>
+  <button class="flashbar__hide" data-ft-flashbar-hide>&times;</button>
   <div class="fluid-container">
     Info
   </div>
 </div>
 <div class="flashbar flashbar--warning" data-ft-flashbar>
-  <button class="flashbar__close" data-ft-flashbar-close>&times;</button>
+  <button class="flashbar__hide" data-ft-flashbar-hide>&times;</button>
   <div class="fluid-container">
     Warning
   </div>
 </div>
 <div class="flashbar flashbar--danger" data-ft-flashbar>
-  <button class="flashbar__close" data-ft-flashbar-close>&times;</button>
+  <button class="flashbar__hide" data-ft-flashbar-hide>&times;</button>
   <div class="fluid-container">
     Danger
   </div>
@@ -260,37 +229,37 @@
   <div class="example__code">
     <div class="highlight">
       <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flashbar flashbar--default"</span> <span class="na">data-ft-flashbar</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__close"</span> <span class="na">data-ft-flashbar-close</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__hide"</span> <span class="na">data-ft-flashbar-hide</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fluid-container"</span><span class="nt">&gt;</span>
     Default
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flashbar flashbar--primary"</span> <span class="na">data-ft-flashbar</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__close"</span> <span class="na">data-ft-flashbar-close</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__hide"</span> <span class="na">data-ft-flashbar-hide</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fluid-container"</span><span class="nt">&gt;</span>
     Primary
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flashbar flashbar--success"</span> <span class="na">data-ft-flashbar</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__close"</span> <span class="na">data-ft-flashbar-close</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__hide"</span> <span class="na">data-ft-flashbar-hide</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fluid-container"</span><span class="nt">&gt;</span>
     Success
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flashbar flashbar--info"</span> <span class="na">data-ft-flashbar</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__close"</span> <span class="na">data-ft-flashbar-close</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__hide"</span> <span class="na">data-ft-flashbar-hide</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fluid-container"</span><span class="nt">&gt;</span>
     Info
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flashbar flashbar--warning"</span> <span class="na">data-ft-flashbar</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__close"</span> <span class="na">data-ft-flashbar-close</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__hide"</span> <span class="na">data-ft-flashbar-hide</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fluid-container"</span><span class="nt">&gt;</span>
     Warning
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"flashbar flashbar--danger"</span> <span class="na">data-ft-flashbar</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__close"</span> <span class="na">data-ft-flashbar-close</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"flashbar__hide"</span> <span class="na">data-ft-flashbar-hide</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fluid-container"</span><span class="nt">&gt;</span>
     Danger
   <span class="nt">&lt;/div&gt;</span>
@@ -302,12 +271,12 @@
 <h1 id="js-modal" class="styleguide">Modal</h1>
 <p class="styleguide">Modals are used to block the user from doing any other actions except inside of a focused area of content.</p>
 <div class="note note--info">
-  <p class="styleguide">Modals don't need JavaScript by default, but if you want the close buttons to dismiss without an extra call to the server then you'll want to use the JS Component</p>
+  <p class="styleguide">Modals don't need JavaScript by default, but if you want the modal to dismiss without an extra call to the server then you'll want to use the JS Component</p>
   <p class="styleguide">if you want a modal to have a specific width it's suggested that you set a <code class="styleguide">max-width</code> on an extension class. (Example below)</p>
   <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
   <ul class="styleguide">
     <li><code class="styleguide">data-ft-modal</code> on the <code class="styleguide">.modal</code> element</li>
-    <li><code class="styleguide">data-ft-modal-close</code> on the <code class="styleguide">.modal__close</code> element</li>
+    <li><code class="styleguide">data-ft-modal-hide</code> on the <code class="styleguide">.modal__hide</code> element</li>
   </ul>
 </div>
 <div class="example">
@@ -326,29 +295,29 @@
 <th>description</th>
 </tr>
 </thead> <tbody><tr>
-<td><code class="styleguide">open.ft.modal</code></td>
-<td>The modal is going to open</td>
+<td><code class="styleguide">show.ft.modal</code></td>
+<td>The modal is going to show</td>
 </tr>
 <tr>
-<td><code class="styleguide">opened.ft.modal</code></td>
-<td>The modal is opened</td>
+<td><code class="styleguide">shown.ft.modal</code></td>
+<td>The modal is shown</td>
 </tr>
 <tr>
-<td><code class="styleguide">close.ft.modal</code></td>
-<td>The modal is going to close</td>
+<td><code class="styleguide">hide.ft.modal</code></td>
+<td>The modal is going to hide</td>
 </tr>
 <tr>
-<td><code class="styleguide">closed.ft.modal</code></td>
-<td>The modal is closed</td>
+<td><code class="styleguide">hidden.ft.modal</code></td>
+<td>The modal is hidden</td>
 </tr>
 </tbody> </table><div class="example">
-  <!-- <script>$(document).on('open.ft.modal', '.modal', function(event) {
+  <!-- <script>$(document).on('hide.ft.modal', '.modal', function(event) {
   // do some work
 });
 </script> -->
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'open.ft.modal'</span><span class="p">,</span> <span class="s1">'.modal'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'hide.ft.modal'</span><span class="p">,</span> <span class="s1">'.modal'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// do some work</span>
 <span class="p">});</span></pre>
     </div>
@@ -356,13 +325,20 @@
 </div>
 <h2 class="styleguide">Position</h2><h3 class="styleguide">Default <small>(middle)</small></h3><div class="example">
   <div class="example__preview">
-    <a href="javascript: void(0);" data-ft-modal-open="example-modal">Open Modal</a>
+    <button class="button button--default" data-ft-modal-show="example-modal">Show Modal</button>
 <div class="modal animated" id="example-modal" data-ft-modal data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
   <div class="modal__content">
-    <button class="modal__close" data-ft-modal-close="example-modal">&times;</button>
+    <button class="modal__hide" data-ft-modal-hide="example-modal">&times;</button>
     <div class="box box--default xs-p1">
       <h1 class="xs-mb1">Hello World</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!</p>
+      <p>
+        Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.
+        Commodi pariatur culpa earum!
+        Qui autem totam cum porro minus iusto,
+        sint consequatur odit voluptatem velit aliquam dolorum dolorem ut,
+        repellendus hic!
+      </p>
     </div>
   </div>
 </div>
@@ -370,13 +346,20 @@
   </div>
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: void(0);"</span> <span class="na">data-ft-modal-open=</span><span class="s">"example-modal"</span><span class="nt">&gt;</span>Open Modal<span class="nt">&lt;/a&gt;</span>
+      <pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button--default"</span> <span class="na">data-ft-modal-show=</span><span class="s">"example-modal"</span><span class="nt">&gt;</span>Show Modal<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal animated"</span> <span class="na">id=</span><span class="s">"example-modal"</span> <span class="na">data-ft-modal</span> <span class="na">data-ft-show-class=</span><span class="s">"fadeInDown"</span> <span class="na">data-ft-hide-class=</span><span class="s">"fadeOutUp"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__content"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"modal__close"</span> <span class="na">data-ft-modal-close=</span><span class="s">"example-modal"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"modal__hide"</span> <span class="na">data-ft-modal-hide=</span><span class="s">"example-modal"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box box--default xs-p1"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"xs-mb1"</span><span class="nt">&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
-      <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.
+        Commodi pariatur culpa earum!
+        Qui autem totam cum porro minus iusto,
+        sint consequatur odit voluptatem velit aliquam dolorum dolorem ut,
+        repellendus hic!
+      <span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></pre>
@@ -385,13 +368,20 @@
 </div>
 <h3 class="styleguide">Top</h3><div class="example">
   <div class="example__preview">
-    <a href="javascript: void(0);" data-ft-modal-open="example-modal-top">Open Modal</a>
+    <button class="button button--default" data-ft-modal-show="example-modal-top">Show Modal</button>
 <div class="modal modal--top animated" id="example-modal-top" data-ft-modal data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
   <div class="modal__content">
-    <button class="modal__close" data-ft-modal-close="example-modal-top">&times;</button>
+    <button class="modal__hide" data-ft-modal-hide="example-modal-top">&times;</button>
     <div class="box box--default xs-p1">
       <h1 class="xs-mb1">Hello World</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!</p>
+      <p>
+        Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.
+        Commodi pariatur culpa earum!
+        Qui autem totam cum porro minus iusto,
+        sint consequatur odit voluptatem velit aliquam dolorum dolorem ut,
+        repellendus hic!
+      </p>
     </div>
   </div>
 </div>
@@ -399,13 +389,20 @@
   </div>
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: void(0);"</span> <span class="na">data-ft-modal-open=</span><span class="s">"example-modal-top"</span><span class="nt">&gt;</span>Open Modal<span class="nt">&lt;/a&gt;</span>
+      <pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button--default"</span> <span class="na">data-ft-modal-show=</span><span class="s">"example-modal-top"</span><span class="nt">&gt;</span>Show Modal<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal modal--top animated"</span> <span class="na">id=</span><span class="s">"example-modal-top"</span> <span class="na">data-ft-modal</span> <span class="na">data-ft-show-class=</span><span class="s">"fadeInDown"</span> <span class="na">data-ft-hide-class=</span><span class="s">"fadeOutUp"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__content"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"modal__close"</span> <span class="na">data-ft-modal-close=</span><span class="s">"example-modal-top"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"modal__hide"</span> <span class="na">data-ft-modal-hide=</span><span class="s">"example-modal-top"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box box--default xs-p1"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"xs-mb1"</span><span class="nt">&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
-      <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.
+        Commodi pariatur culpa earum!
+        Qui autem totam cum porro minus iusto,
+        sint consequatur odit voluptatem velit aliquam dolorum dolorem ut,
+        repellendus hic!
+      <span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></pre>
@@ -414,13 +411,20 @@
 </div>
 <h3 class="styleguide">Bottom</h3><div class="example">
   <div class="example__preview">
-    <a href="javascript: void(0);" data-ft-modal-open="example-modal-bottom">Open Modal</a>
+    <button class="button button--default" data-ft-modal-show="example-modal-bottom">Show Modal</button>
 <div class="modal modal--bottom animated" id="example-modal-bottom" data-ft-modal data-ft-show-class="fadeInUp" data-ft-hide-class="fadeOutDown">
   <div class="modal__content">
-    <button class="modal__close" data-ft-modal-close="example-modal-bottom">&times;</button>
+    <button class="modal__hide" data-ft-modal-hide="example-modal-bottom">&times;</button>
     <div class="box box--default xs-p1">
       <h1 class="xs-mb1">Hello World</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!</p>
+      <p>
+        Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.
+        Commodi pariatur culpa earum!
+        Qui autem totam cum porro minus iusto,
+        sint consequatur odit voluptatem velit aliquam dolorum dolorem ut,
+        repellendus hic!
+      </p>
     </div>
   </div>
 </div>
@@ -428,13 +432,20 @@
   </div>
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: void(0);"</span> <span class="na">data-ft-modal-open=</span><span class="s">"example-modal-bottom"</span><span class="nt">&gt;</span>Open Modal<span class="nt">&lt;/a&gt;</span>
+      <pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button--default"</span> <span class="na">data-ft-modal-show=</span><span class="s">"example-modal-bottom"</span><span class="nt">&gt;</span>Show Modal<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal modal--bottom animated"</span> <span class="na">id=</span><span class="s">"example-modal-bottom"</span> <span class="na">data-ft-modal</span> <span class="na">data-ft-show-class=</span><span class="s">"fadeInUp"</span> <span class="na">data-ft-hide-class=</span><span class="s">"fadeOutDown"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__content"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"modal__close"</span> <span class="na">data-ft-modal-close=</span><span class="s">"example-modal-bottom"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"modal__hide"</span> <span class="na">data-ft-modal-hide=</span><span class="s">"example-modal-bottom"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box box--default xs-p1"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"xs-mb1"</span><span class="nt">&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
-      <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi pariatur culpa earum! Qui autem totam cum porro minus iusto, sint consequatur odit voluptatem velit aliquam dolorum dolorem ut, repellendus hic!<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.
+        Commodi pariatur culpa earum!
+        Qui autem totam cum porro minus iusto,
+        sint consequatur odit voluptatem velit aliquam dolorum dolorem ut,
+        repellendus hic!
+      <span class="nt">&lt;/p&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></pre>
@@ -445,112 +456,83 @@
 <h1 id="js-navigationbar" class="styleguide">Navigationbar</h1>
 <p class="styleguide">The <code class="styleguide">navigationbar</code> object is used for the main navigation of a website.</p>
 <div class="note note--info">
-  <p class="styleguide">Navigationbars don't need JavaScript by default, but if you want the close buttons to dismiss without an extra call to the server then you'll want to use the JS Component</p>
+  <p class="styleguide">Navigationbars don't need JavaScript by default, but if you want the navigationbar to trigger the shade component then you'll want to use the JS Component</p>
   <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
   <ul class="styleguide">
     <li><code class="styleguide">data-ft-navigationbar</code> on the <code class="styleguide">.navigationbar</code> element</li>
     <li><code class="styleguide">data-ft-navigationbar-toggle</code> on the <code class="styleguide">.navigationbar__toggle</code> element</li>
   </ul>
 </div>
-<p class="styleguide">Below are some events you can listen to:</p><table class="styleguide"> <thead><tr>
-<th>event</th>
-<th>description</th>
-</tr>
-</thead> <tbody><tr>
-<td><code class="styleguide">open.ft.navigationbar</code></td>
-<td>The navigationbar list is going to open</td>
-</tr>
-<tr>
-<td><code class="styleguide">opened.ft.navigationbar</code></td>
-<td>The navigationbar list is opened</td>
-</tr>
-<tr>
-<td><code class="styleguide">close.ft.navigationbar</code></td>
-<td>The navigationbar list is going to close</td>
-</tr>
-<tr>
-<td><code class="styleguide">closed.ft.navigationbar</code></td>
-<td>The navigationbar list is closed</td>
-</tr>
-</tbody> </table><div class="example">
-  <!-- <script>$(document).on('open.ft.navigationbar', '.navigationbar', function(event) {
-  // do some work
-});
-</script> -->
-  <div class="example__code">
-    <div class="highlight">
-      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'open.ft.navigationbar'</span><span class="p">,</span> <span class="s1">'.navigationbar'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// do some work</span>
-<span class="p">});</span></pre>
-    </div>
-  </div>
-</div>
 <div class="example">
   <div class="example__preview">
-    <div class="navigationbar navigationbar--default" data-ft-navigationbar>
-  <div class="fluid-container">
-    <div class="navigationbar__header">
-      <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
-    </div>
-    <nav class="navigationbar__nav">
-      <input class="navigationbar__toggle" type="checkbox" id="navigationbar__toggle" data-ft-navigationbar-toggle>
-      <label class="navigationbar__label" for="navigationbar__toggle">
+    <nav class="navigationbar navigationbar--default" data-ft-navigationbar>
+  <div class="fluid-container clearfix">
+    <div class="navigationbar__header clearfix">
+      <a class="navigationbar__logo" href="#" target="_self">Fortitude</a>
+      <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
         <i class="fa fa-bars"></i>
-      </label>
+      </button>
+      <button class="button xs-float-right sm-float-none">
+        <i class="fa fa-eye-slash"></i>
+      </button>
+    </div>
+    <nav class="navigationbar__nav navigationbar__nav--is-hidden">
       <ul class="navigationbar__list">
         <li class="navigationbar__item">
-          <a href="objects.html" class="navigationbar__link">Objects</a>
+          <a href="#" class="navigationbar__link">Objects</a>
         </li>
         <li class="navigationbar__item">
-          <a href="structure.html" class="navigationbar__link">Structure</a>
+          <a href="#" class="navigationbar__link">Structure</a>
         </li>
         <li class="navigationbar__item">
-          <a href="utilities.html" class="navigationbar__link">Utilities</a>
+          <a href="#" class="navigationbar__link">Utilities</a>
         </li>
         <li class="navigationbar__item">
-          <a href="javascript.html" class="navigationbar__link">Javascript</a>
+          <a href="#" class="navigationbar__link">Javascript</a>
         </li>
-        <li class="navigationbar__item">
-          <a href="architecture.html" class="navigationbar__link">Architecture</a>
+        <li class="navigationbar__item xs-prl1 sm-prl0">
+          <a href="#" class="button button--full button--primary">Architecture</a>
         </li>
       </ul>
     </nav>
   </div>
-</div>
+</nav>
 
   </div>
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navigationbar navigationbar--default"</span> <span class="na">data-ft-navigationbar</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fluid-container"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navigationbar__header"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navigationbar__logo"</span> <span class="na">href=</span><span class="s">"/"</span> <span class="na">target=</span><span class="s">"_self"</span><span class="nt">&gt;</span>Fortitude<span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navigationbar__nav"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"navigationbar__toggle"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"navigationbar__toggle"</span> <span class="na">data-ft-navigationbar-toggle</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"navigationbar__label"</span> <span class="na">for=</span><span class="s">"navigationbar__toggle"</span><span class="nt">&gt;</span>
+      <pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navigationbar navigationbar--default"</span> <span class="na">data-ft-navigationbar</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fluid-container clearfix"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navigationbar__header clearfix"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navigationbar__logo"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_self"</span><span class="nt">&gt;</span>Fortitude<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button xs-inline-block sm-none xs-float-right"</span> <span class="na">data-navigationbar-toggle</span><span class="nt">&gt;</span>
         <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-bars"</span><span class="nt">&gt;&lt;/i&gt;</span>
-      <span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button xs-float-right sm-float-none"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-eye-slash"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navigationbar__nav navigationbar__nav--is-hidden"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"navigationbar__list"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"objects.html"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Objects<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Objects<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"structure.html"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Structure<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Structure<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"utilities.html"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Utilities<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Utilities<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript.html"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Javascript<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Javascript<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"architecture.html"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Architecture<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item xs-prl1 sm-prl0"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"button button--full button--primary"</span><span class="nt">&gt;</span>Architecture<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
       <span class="nt">&lt;/ul&gt;</span>
     <span class="nt">&lt;/nav&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></pre>
+<span class="nt">&lt;/nav&gt;</span></pre>
     </div>
   </div>
 </div>
@@ -558,8 +540,8 @@
 <h1 id="js-popover" class="styleguide">Popover</h1>
 <p class="styleguide">The <code class="styleguide">popover</code> is used to hide content or navigation behind a clickable element</p>
 <div class="note note--info">
-  <p class="styleguide">Popovers don't need JavaScript by default, but if you have more then 1 popover and you don't want them to all stay open when clicking on one of them then you'll want to use the JS Component</p>
-  <p class="styleguide">when creating a popover if you add a <code class="styleguide">data-ft-popover</code> and set it to a value all other popovers with that value will close when one is open.</p>
+  <p class="styleguide">Popovers don't need JavaScript by default, but if you have more then 1 popover and you don't want them to all stay shown when clicking on one of them then you'll want to use the JS Component</p>
+  <p class="styleguide">when creating a popover if you add a <code class="styleguide">data-ft-popover</code> and set it to a value all other popovers with that value will hide when one is shown.</p>
   <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
   <ul class="styleguide">
     <li><code class="styleguide">data-ft-popover</code> on the <code class="styleguide">.popover</code> element</li>
@@ -569,17 +551,18 @@
 </div>
 
 <div class="note note--warning">
-  <p class="styleguide">make sure to put the <code class="styleguide">.popover--is-open__label</code> before the <code class="styleguide">.popover__label</code> this is nessasry so that if you only want to just <code class="styleguide">.popover__label</code> you can</p>
+  <p class="styleguide">make sure to put the <code class="styleguide">.popover--is-shown__label</code> before the <code class="styleguide">.popover__label</code> this is nessasry so that if you only want to just <code class="styleguide">.popover__label</code> you can</p>
+  <p class="styleguide">You have to use a <code class="styleguide">&lt;span&gt;</code> for buttons because the <code class="styleguide">&lt;label&gt;</code> element is used to trigger the checkbox element</p>
 </div>
 <div class="example">
   <div class="example__preview">
     <nav class="popover" data-ft-popover="example" data-show-class="fadeIn" data-hide-class="fadeOut">
   <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
-  <label for="example-popover" class="popover--is-open__label">
-    Close <i class="fa fa-caret-up"></i>
+  <label for="example-popover" class="popover--is-shown__label">
+    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
   </label>
   <label for="example-popover" class="popover__label">
-    Open <i class="fa fa-caret-down"></i>
+    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
   </label>
   <div class="popover__content box box--default animated" data-ft-popover-content>
     <ul class="bare-list">
@@ -593,11 +576,11 @@
 
 <nav class="popover" data-ft-popover="example">
   <input type="checkbox" class="popover__toggle" id="example-popover" data-ft-popover-toggle />
-  <label for="example-popover" class="popover--is-open__label">
-    Close <i class="fa fa-caret-up"></i>
+  <label for="example-popover" class="popover--is-shown__label">
+    <span class="button button--default">Hide <i class="fa fa-caret-up"></i></span>
   </label>
   <label for="example-popover" class="popover__label">
-    Open <i class="fa fa-caret-down"></i>
+    <span class="button button--default">Show <i class="fa fa-caret-down"></i></span>
   </label>
   <div class="popover__content box box--default" data-ft-popover-content>
     <ul class="bare-list">
@@ -614,11 +597,11 @@
     <div class="highlight">
       <pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"popover"</span> <span class="na">data-ft-popover=</span><span class="s">"example"</span> <span class="na">data-show-class=</span><span class="s">"fadeIn"</span> <span class="na">data-hide-class=</span><span class="s">"fadeOut"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"popover__toggle"</span> <span class="na">id=</span><span class="s">"example-popover"</span> <span class="na">data-ft-popover-toggle</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"example-popover"</span> <span class="na">class=</span><span class="s">"popover--is-open__label"</span><span class="nt">&gt;</span>
-    Close <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-up"</span><span class="nt">&gt;&lt;/i&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"example-popover"</span> <span class="na">class=</span><span class="s">"popover--is-shown__label"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"button button--default"</span><span class="nt">&gt;</span>Hide <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-up"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
   <span class="nt">&lt;/label&gt;</span>
   <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"example-popover"</span> <span class="na">class=</span><span class="s">"popover__label"</span><span class="nt">&gt;</span>
-    Open <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-down"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"button button--default"</span><span class="nt">&gt;</span>Show <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-down"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
   <span class="nt">&lt;/label&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"popover__content box box--default animated"</span> <span class="na">data-ft-popover-content</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"bare-list"</span><span class="nt">&gt;</span>
@@ -632,11 +615,11 @@
 
 <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"popover"</span> <span class="na">data-ft-popover=</span><span class="s">"example"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"popover__toggle"</span> <span class="na">id=</span><span class="s">"example-popover"</span> <span class="na">data-ft-popover-toggle</span> <span class="nt">/&gt;</span>
-  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"example-popover"</span> <span class="na">class=</span><span class="s">"popover--is-open__label"</span><span class="nt">&gt;</span>
-    Close <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-up"</span><span class="nt">&gt;&lt;/i&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"example-popover"</span> <span class="na">class=</span><span class="s">"popover--is-shown__label"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"button button--default"</span><span class="nt">&gt;</span>Hide <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-up"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
   <span class="nt">&lt;/label&gt;</span>
   <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"example-popover"</span> <span class="na">class=</span><span class="s">"popover__label"</span><span class="nt">&gt;</span>
-    Open <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-down"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"button button--default"</span><span class="nt">&gt;</span>Show <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-down"</span><span class="nt">&gt;&lt;/i&gt;&lt;/span&gt;</span>
   <span class="nt">&lt;/label&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"popover__content box box--default"</span> <span class="na">data-ft-popover-content</span><span class="nt">&gt;</span>
     <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"bare-list"</span><span class="nt">&gt;</span>
@@ -719,36 +702,56 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
 </div>
 
 <h1 id="js-shade" class="styleguide">Shade</h1>
-<p class="styleguide">The <code class="styleguide">shade</code> object is used to dim the entire website use cases might be to allow the users focus to be on a specific element like navigation or a modal.</p><p class="styleguide">Below are some events you can listen to:</p><table class="styleguide"> <thead><tr>
+<p class="styleguide">The <code class="styleguide">shade</code> object is used to dim the entire website use cases might be to allow the users focus to be on a specific element like navigation or a modal. You can also show and hide the shade using data- attributes, and the shade will automatically hide when clicked on.</p>
+<div class="note note--info">
+  <p class="styleguide">Shades don't need JavaScript by default, but if you want the shade to show and dismiss without an extra call to the server, then you'll want to use the JS Component</p>
+  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
+  <ul class="styleguide">
+    <li><code class="styleguide">data-ft-shade-show</code> on any element</li>
+    <li><code class="styleguide">data-ft-shade-hide</code> on any element</li>
+  </ul>
+</div>
+<p class="styleguide">Below are some events you can listen to:</p><table class="styleguide"> <thead><tr>
 <th>event</th>
 <th>description</th>
 </tr>
 </thead> <tbody><tr>
-<td><code class="styleguide">open.ft.shade</code></td>
-<td>The shade is going to open</td>
+<td><code class="styleguide">show.ft.shade</code></td>
+<td>The shade is going to show</td>
 </tr>
 <tr>
-<td><code class="styleguide">opened.ft.shade</code></td>
-<td>The shade is opened</td>
+<td><code class="styleguide">shown.ft.shade</code></td>
+<td>The shade is shown</td>
 </tr>
 <tr>
-<td><code class="styleguide">close.ft.shade</code></td>
-<td>The shade is going to close</td>
+<td><code class="styleguide">hide.ft.shade</code></td>
+<td>The shade is going to hide</td>
 </tr>
 <tr>
-<td><code class="styleguide">closed.ft.shade</code></td>
-<td>The shade is closed</td>
+<td><code class="styleguide">hidden.ft.shade</code></td>
+<td>The shade is hidden</td>
 </tr>
 </tbody> </table><div class="example">
-  <!-- <script>$(document).on('open.ft.shade', '.shade', function(event) {
+  <!-- <script>$(document).on('show.ft.shade', '.shade', function(event) {
   // do some work
 });
 </script> -->
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'open.ft.shade'</span><span class="p">,</span> <span class="s1">'.shade'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.ft.shade'</span><span class="p">,</span> <span class="s1">'.shade'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// do some work</span>
 <span class="p">});</span></pre>
+    </div>
+  </div>
+</div>
+<div class="example">
+  <div class="example__preview">
+    <button class="button button--default" data-ft-shade-show>Show Shade</button>
+
+  </div>
+  <div class="example__code">
+    <div class="highlight">
+      <pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button--default"</span> <span class="na">data-ft-shade-show</span><span class="nt">&gt;</span>Show Shade<span class="nt">&lt;/button&gt;</span></pre>
     </div>
   </div>
 </div>
@@ -756,7 +759,7 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
 <h1 id="js-tabs" class="styleguide">Tabs</h1>
 <p class="styleguide">Tabs are used to navigate between different sections of content in a tabbed interface.</p>
 <div class="note note--info">
-  <p class="styleguide">Tabs don't need JavaScript by default, but if you want the close buttons to dismiss without an extra call to the server then you'll want to use the JS Component</p>
+  <p class="styleguide">Tabs don't need JavaScript by default, but if you want the tabs to switch without an extra call to the server then you'll want to use the JS Component</p>
   <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
   <ul class="styleguide">
     <li><code class="styleguide">data-ft-tabs</code> on the <code class="styleguide">.tabs</code> element</li>
@@ -802,9 +805,9 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
 </div>
 <h3 class="styleguide">Default</h3><div class="example">
   <div class="example__preview">
-    <nav class="tabs tabs--default" id="example-tabs" data-ft-tabs data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
-  <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default" data-ft-tabs-navigation="example-tabs">
-    <li class="tabs-navigation__item">
+    <nav class="tabs tabs--default" data-ft-tabs data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
+  <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default">
+    <li class="tabs-navigation__item tabs-navigation__item--is-active">
       <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 1</a>
     </li>
     <li class="tabs-navigation__item">
@@ -814,7 +817,7 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
       <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 3</a>
     </li>
   </ul>
-  <div class="tabs__content" data-ft-tabs-content>
+  <div class="tabs__content tabs__content--is-shown" data-ft-tabs-content>
     Content for tab 1
   </div>
   <div class="tabs__content" data-ft-tabs-content>
@@ -828,9 +831,9 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
   </div>
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"tabs tabs--default"</span> <span class="na">id=</span><span class="s">"example-tabs"</span> <span class="na">data-ft-tabs</span> <span class="na">data-ft-show-class=</span><span class="s">"fadeInDown"</span> <span class="na">data-ft-hide-class=</span><span class="s">"fadeOutUp"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tabs-navigation tabs-navigation--fixed tabs-navigation--default"</span> <span class="na">data-ft-tabs-navigation=</span><span class="s">"example-tabs"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"tabs-navigation__item"</span><span class="nt">&gt;</span>
+      <pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"tabs tabs--default"</span> <span class="na">data-ft-tabs</span> <span class="na">data-ft-show-class=</span><span class="s">"fadeInDown"</span> <span class="na">data-ft-hide-class=</span><span class="s">"fadeOutUp"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tabs-navigation tabs-navigation--fixed tabs-navigation--default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"tabs-navigation__item tabs-navigation__item--is-active"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: void(0);"</span> <span class="na">class=</span><span class="s">"tabs-navigation__link"</span> <span class="na">data-ft-tabs-navigation-link</span><span class="nt">&gt;</span>Tab 1<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"tabs-navigation__item"</span><span class="nt">&gt;</span>
@@ -840,7 +843,7 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: void(0);"</span> <span class="na">class=</span><span class="s">"tabs-navigation__link"</span> <span class="na">data-ft-tabs-navigation-link</span><span class="nt">&gt;</span>Tab 3<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/li&gt;</span>
   <span class="nt">&lt;/ul&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs__content"</span> <span class="na">data-ft-tabs-content</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs__content tabs__content--is-shown"</span> <span class="na">data-ft-tabs-content</span><span class="nt">&gt;</span>
     Content for tab 1
   <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs__content"</span> <span class="na">data-ft-tabs-content</span><span class="nt">&gt;</span>
@@ -854,12 +857,11 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
   </div>
 </div>
     
-      </section>
     </div>
     
     <div class="container">
       <footer class="xs-text-center xs-mb2">
-        <p class="xs-mb1">Made with <span class="text--red">&hearts;</span> at <a href="http://hired.com">HIRED</a></p>
+        <p class="xs-mb1">Made with <i class="fa fa-heart text--red"></i> at <a href="http://hired.com">HIRED</a></p>
         <small>This documentation was generated using <a href="http://github.com/trulia/hologram">Hologram</a></small>
       </footer>
     </div>

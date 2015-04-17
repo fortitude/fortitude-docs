@@ -9,71 +9,38 @@
   </head>
   <body>
     <header class="container--fixed-top fluid-container">
-      <nav class="navigationbar js-navigationbar navigationbar--default" data-ft-navigationbar>
+      <nav class="navigationbar navigationbar--default" data-ft-navigationbar>
         <div class="container clearfix">
-          <div class="navigationbar__header">
+          <div class="navigationbar__header clearfix">
             <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
-            <label class="navigationbar__label" for="navigationbar-toggle">
+            <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
               <i class="fa fa-bars"></i>
-            </label>
-            <button class="button xs-float-right" id="grid-toggle-button">
-              <i class="fa fa-eye-slash" style="vertical-align: middle;"></i>
+            </button>
+            <button class="button xs-float-right sm-float-none" id="grid-toggle-button">
+              <i class="fa fa-eye-slash"></i>
             </button>
           </div>
-          <nav class="navigationbar__nav clearfix xs-text-right">
-            <input class="navigationbar__toggle" type="checkbox" id="navigationbar-toggle" data-ft-navigationbar-toggle>
-            <ul class="navigationbar__list xs-float-left">
+          <nav class="navigationbar__nav navigationbar__nav--is-hidden">
+            <ul class="navigationbar__list">
               
               <li class="navigationbar__item">
                 <a href="objects.html" class="navigationbar__link">Objects</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Objects Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Objects Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="structure.html" class="navigationbar__link">Structure</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Structure Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Structure Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="utilities.html" class="navigationbar__link">Utilities</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Utilities Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Utilities Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="javascript.html" class="navigationbar__link">Javascript</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Javascript Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Javascript Item 2</a>
-                  </li>
-                </ul>
               </li>
               
-              <li class="navigationbar__item">
-                <a href="architecture.html" class="navigationbar__link">Architecture</a>
+              <li class="navigationbar__item xs-prl1 sm-prl0">
+                <a href="architecture.html" class="button button--full button--primary">Architecture</a>
               </li>
             </ul>
           </nav>
@@ -166,7 +133,7 @@
     
     <div class="container">
       <footer class="xs-text-center xs-mb2">
-        <p class="xs-mb1">Made with <span class="text--red">&hearts;</span> at <a href="http://hired.com">HIRED</a></p>
+        <p class="xs-mb1">Made with <i class="fa fa-heart text--red"></i> at <a href="http://hired.com">HIRED</a></p>
         <small>This documentation was generated using <a href="http://github.com/trulia/hologram">Hologram</a></small>
       </footer>
     </div>

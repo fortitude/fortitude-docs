@@ -3,9 +3,9 @@ h2.styleguide,
 h3.styleguide,
 p.styleguide,
 table.styleguide {
-  margin-right: 2 * $base-spacing-unit;
+  margin-right: 2rem;
   margin-bottom: 2 * $base-spacing-unit;
-  margin-left: 2 * $base-spacing-unit;
+  margin-left: 2rem;
 }
 
 h1.styleguide,
@@ -13,6 +13,16 @@ h2.styleguide,
 h3.styleguide {
   line-height: 4 * $base-spacing-unit;
   padding-top: 6 * $base-spacing-unit;
+}
+
+ul.styleguide {
+  margin-right: 2rem;
+  margin-bottom: 2 * $base-spacing-unit;
+  margin-left: 4rem;
+
+  > li {
+    margin-bottom: 1rem;
+  }
 }
 
 @include breakpoint("sm") {
@@ -24,16 +34,14 @@ h3.styleguide {
     margin-right: 0;
     margin-left: 0;
   }
+
+  ul.styleguide {
+    margin-left: 2rem;
+  }
 }
 
 p.styleguide {
   margin-bottom: $base-spacing-unit;
-}
-
-ul.styleguide {
-  > li {
-    margin-bottom: 1rem;
-  }
 }
 
 code.styleguide {

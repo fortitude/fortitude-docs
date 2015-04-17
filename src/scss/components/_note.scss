@@ -1,8 +1,18 @@
 .note {
   margin-bottom: 2rem;
-  padding: 1rem;
+  padding: 2rem;
 
-  > *:last-child {
+  > .styleguide {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  > ul.styleguide,
+  > ol.styleguide {
+    margin-left: 2rem;
+  }
+
+  > .styleguide:last-child {
     margin-bottom: 0;
   }
 }

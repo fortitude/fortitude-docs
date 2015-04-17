@@ -9,71 +9,38 @@
   </head>
   <body>
     <header class="container--fixed-top fluid-container">
-      <nav class="navigationbar js-navigationbar navigationbar--default" data-ft-navigationbar>
+      <nav class="navigationbar navigationbar--default" data-ft-navigationbar>
         <div class="container clearfix">
-          <div class="navigationbar__header">
+          <div class="navigationbar__header clearfix">
             <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
-            <label class="navigationbar__label" for="navigationbar-toggle">
+            <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
               <i class="fa fa-bars"></i>
-            </label>
-            <button class="button xs-float-right" id="grid-toggle-button">
-              <i class="fa fa-eye-slash" style="vertical-align: middle;"></i>
+            </button>
+            <button class="button xs-float-right sm-float-none" id="grid-toggle-button">
+              <i class="fa fa-eye-slash"></i>
             </button>
           </div>
-          <nav class="navigationbar__nav clearfix xs-text-right">
-            <input class="navigationbar__toggle" type="checkbox" id="navigationbar-toggle" data-ft-navigationbar-toggle>
-            <ul class="navigationbar__list xs-float-left">
+          <nav class="navigationbar__nav navigationbar__nav--is-hidden">
+            <ul class="navigationbar__list">
               
               <li class="navigationbar__item">
                 <a href="objects.html" class="navigationbar__link">Objects</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Objects Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Objects Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="structure.html" class="navigationbar__link">Structure</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Structure Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Structure Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="utilities.html" class="navigationbar__link">Utilities</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Utilities Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Utilities Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="javascript.html" class="navigationbar__link">Javascript</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Javascript Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Javascript Item 2</a>
-                  </li>
-                </ul>
               </li>
               
-              <li class="navigationbar__item">
-                <a href="architecture.html" class="navigationbar__link">Architecture</a>
+              <li class="navigationbar__item xs-prl1 sm-prl0">
+                <a href="architecture.html" class="button button--full button--primary">Architecture</a>
               </li>
             </ul>
           </nav>
@@ -87,9 +54,22 @@
 
     
     <div class="container">
-      <section class="content">
+      <div class="note note--danger xs-mt2">
+        This is not a 1.0 release. Things are moving at a fast pace, please note you might have some refactoring to do using this code.
+      </div>
     
-<h1 class="styleguide">Architecture</h1><p class="styleguide">CSS Sucks, thats why Fortitude is built on top of some of the best conceptual layers that have hit the industry to save you from the issues of CSS. Things like <strong>OOCSS</strong>, <strong>BEM</strong>, <strong>Vertical Rhyhtm</strong> <strong>Mobile First</strong>, <strong>self contained components</strong> and <strong>Don&#x27;t fight the browser</strong>.</p><h2 class="styleguide">OOCSS &mdash; Object Oriented CSS</h2><p class="styleguide">The purpose of Object-Oriented CSS is to create reusable components that ensure consistency among these elements wherever they may be used.</p><p class="styleguide">It allows you to predefine certain structural properties such as <code class="styleguide">padding</code>, <code class="styleguide">margin</code>, alignment, and <code class="styleguide">font-size</code> that can then be reused for additional visual representations.</p><h2 class="styleguide">BEM &mdash; Block, Element, Modifier</h2><p class="styleguide">BEM is a front-end naming methodology that gives meaning to your CSS Class Names so other developers can easily understand the associations between your CSS Objects.</p><p class="styleguide">The naming convention follows this pattern:</p><div class="example">
+<h1 class="styleguide">Architecture</h1><p class="styleguide">CSS Sucks, thats why Fortitude is built on top of some of the best conceptual layers that have hit the industry to save you from the issues of CSS. Things like <strong>OOCSS</strong>, <strong>BEM</strong>, <strong>Vertical Rhyhtm</strong> <strong>Mobile First</strong>, <strong>self contained components</strong> and <strong>Don&#x27;t fight the browser</strong>.</p><h2 class="styleguide">OOCSS &mdash; Object Oriented CSS</h2><p class="styleguide">The purpose of Object-Oriented CSS is to create reusable components that ensure consistency among these elements wherever they may be used.</p><p class="styleguide">It allows you to predefine certain structural properties such as <code class="styleguide">padding</code>, <code class="styleguide">margin</code>, alignment, and <code class="styleguide">font-size</code> that can then be reused for additional visual representations.</p><p class="styleguide">if you were to create an extension of button it would look something like this:</p><div class="example">
+  <div class="example__code">
+    <div class="highlight">
+      <pre><span class="nc">.button--secondary</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">gray</span><span class="p">;</span>
+  <span class="nl">border-color</span><span class="p">:</span> <span class="no">gray</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+<span class="p">}</span></pre>
+    </div>
+  </div>
+</div>
+<p class="styleguide">we only have to define the color properties of the extension because the structure of the button doesn&#39;t need to change. This is really nice because you&#39;re only providing the properties you need.</p><h2 class="styleguide">BEM &mdash; Block, Element, Modifier</h2><p class="styleguide">BEM is a front-end naming methodology that gives meaning to your CSS Class Names so other developers can easily understand the associations between your CSS Objects.</p><p class="styleguide">The naming convention follows this pattern:</p><div class="example">
   <div class="example__code">
     <div class="highlight">
       <pre><span class="nc">.block</span> <span class="p">{}</span>
@@ -104,12 +84,11 @@
 </ul><blockquote class="styleguide"><p class="styleguide">Read more about BEM at: <a class="styleguide" href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" title="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">MindBEMding &mdash; getting your head &rsquo;round BEM syntax</a></p></blockquote><h2 class="styleguide">Vertical Rhythm</h2><p class="styleguide">Vertical rhythm is a grid that guides the user&#39;s gaze comfortably through your content by ensuring consistent, predictable vertical spacing between all elements.  </p><h2 class="styleguide">Mobile First</h2><p class="styleguide">This has come to be an industry standard and with very good reason.</p><p class="styleguide">A lot of the time when going from desktop to a mobile design it feels like your &ldquo;shoe horning&rdquo; the mobile experience in.</p><p class="styleguide">Probably because your working with a foundation that was never optimized. If you&lsquo;ve ever spent time optimizing something you know its easier to start from nothing and test each piece of code as your writing it versus building the whole application and testing the entire thing after its done being built.</p><p class="styleguide">If you&rsquo;re thinking about building a responsive site then do it mobile first so you save yourself headaches when trying to optimize for a great mobile experience.</p><h2 class="styleguide">Don&#x27;t fight the browser</h2><p class="styleguide">Your web browser is built by people. Smart people, and what you might think is a defect in your CSS there actually might be a very good reason something was set as a default.
 Rather than just wiping all default browser styles out you should make sure you understand why something is the way it is.</p><p class="styleguide">It&rsquo;s the same idea when you start a new job and start thinking this &ldquo;Old code is crap&rdquo;. Well, there actually might be a very good reason why the old code is the way it is.
 You might end up learning that the code was written to initially be very useful.</p><p class="styleguide">So think about that when you&rsquo;re making decisions in writing code.</p>    
-      </section>
     </div>
     
     <div class="container">
       <footer class="xs-text-center xs-mb2">
-        <p class="xs-mb1">Made with <span class="text--red">&hearts;</span> at <a href="http://hired.com">HIRED</a></p>
+        <p class="xs-mb1">Made with <i class="fa fa-heart text--red"></i> at <a href="http://hired.com">HIRED</a></p>
         <small>This documentation was generated using <a href="http://github.com/trulia/hologram">Hologram</a></small>
       </footer>
     </div>

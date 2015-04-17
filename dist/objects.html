@@ -9,71 +9,38 @@
   </head>
   <body>
     <header class="container--fixed-top fluid-container">
-      <nav class="navigationbar js-navigationbar navigationbar--default" data-ft-navigationbar>
+      <nav class="navigationbar navigationbar--default" data-ft-navigationbar>
         <div class="container clearfix">
-          <div class="navigationbar__header">
+          <div class="navigationbar__header clearfix">
             <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
-            <label class="navigationbar__label" for="navigationbar-toggle">
+            <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
               <i class="fa fa-bars"></i>
-            </label>
-            <button class="button xs-float-right" id="grid-toggle-button">
-              <i class="fa fa-eye-slash" style="vertical-align: middle;"></i>
+            </button>
+            <button class="button xs-float-right sm-float-none" id="grid-toggle-button">
+              <i class="fa fa-eye-slash"></i>
             </button>
           </div>
-          <nav class="navigationbar__nav clearfix xs-text-right">
-            <input class="navigationbar__toggle" type="checkbox" id="navigationbar-toggle" data-ft-navigationbar-toggle>
-            <ul class="navigationbar__list xs-float-left">
+          <nav class="navigationbar__nav navigationbar__nav--is-hidden">
+            <ul class="navigationbar__list">
               
               <li class="navigationbar__item">
                 <a href="objects.html" class="navigationbar__link">Objects</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Objects Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Objects Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="structure.html" class="navigationbar__link">Structure</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Structure Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Structure Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="utilities.html" class="navigationbar__link">Utilities</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Utilities Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Utilities Item 2</a>
-                  </li>
-                </ul>
               </li>
               
               <li class="navigationbar__item">
                 <a href="javascript.html" class="navigationbar__link">Javascript</a>
-                <ul class="navigationbar__dropdown">
-                  <li>
-                    <a href="#" class="navigationbar__link">Javascript Item 1</a>
-                  </li>
-                  <li>
-                    <a href="#" class="navigationbar__link">Javascript Item 2</a>
-                  </li>
-                </ul>
               </li>
               
-              <li class="navigationbar__item">
-                <a href="architecture.html" class="navigationbar__link">Architecture</a>
+              <li class="navigationbar__item xs-prl1 sm-prl0">
+                <a href="architecture.html" class="button button--full button--primary">Architecture</a>
               </li>
             </ul>
           </nav>
@@ -200,7 +167,9 @@
     </div>
     
     <div class="container">
-      <section class="content">
+      <div class="note note--danger xs-mt2">
+        This is not a 1.0 release. Things are moving at a fast pace, please note you might have some refactoring to do using this code.
+      </div>
     
 <h1 id="badge" class="styleguide">Badge</h1>
 <p class="styleguide">Badges are a way to display a small amount of text or an image within a nicely formatted box.</p>
@@ -886,7 +855,11 @@
   <span class="nv">$border-width</span><span class="p">:</span> <span class="m">0</span><span class="mi">.1rem</span><span class="p">;</span>
   <span class="nv">$border-style</span><span class="p">:</span> <span class="s2">"solid"</span><span class="p">;</span> <span class="c1">// this param is optional (default is solid)
 </span>  <span class="nv">$line-height</span><span class="p">:</span> <span class="m">2rem</span><span class="p">;</span> <span class="c1">// this param is optional (default is $fortitude-base-line-height)
-</span>  <span class="k">@include</span> <span class="nd">fortitude-table</span><span class="p">(</span><span class="nv">$cell-height</span><span class="o">,</span> <span class="nv">$border-width</span><span class="o">,</span> <span class="nv">$border-style</span><span class="o">,</span> <span class="nv">$line-height</span><span class="p">);</span>
+</span>  <span class="nv">$children</span><span class="p">:</span> <span class="p">(</span><span class="s2">"thead"</span><span class="o">,</span> <span class="s2">"tbody"</span><span class="o">,</span> <span class="s2">"tfoot"</span><span class="p">);</span> <span class="c1">// this param is optional (default is ("thead", "tbody", "tfoot"))
+</span>  <span class="c1">// if you're curious, the children list is needed for compensation in the vertical rhyhtm grid
+</span>  <span class="c1">// if you'd like this to default to something else change the
+</span>  <span class="c1">// $fortitude-table-children variable in your `_overrides.scss` file.
+</span>  <span class="k">@include</span> <span class="nd">fortitude-table</span><span class="p">(</span><span class="nv">$cell-height</span><span class="o">,</span> <span class="nv">$border-width</span><span class="o">,</span> <span class="nv">$border-style</span><span class="o">,</span> <span class="nv">$line-height</span><span class="o">,</span> <span class="nv">$children</span><span class="p">);</span>
 <span class="p">}</span></pre>
     </div>
   </div>
@@ -894,10 +867,37 @@
 <p class="styleguide">Would output to:</p><div class="example">
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nc">.table--vertical-rhythm-example</span> <span class="p">{</span> <span class="nl">border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span> <span class="nl">border-width</span><span class="p">:</span> <span class="m">0</span><span class="mi">.1rem</span><span class="p">;</span> <span class="p">}</span>
+      <pre><span class="nc">.table--vertical-rhythm-example</span> <span class="p">{</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span>
+  <span class="nl">border-width</span><span class="p">:</span> <span class="m">0</span><span class="mi">.1rem</span><span class="p">;</span>
+<span class="p">}</span>
+
 <span class="nc">.table--vertical-rhythm-example</span> <span class="nt">th</span><span class="o">,</span>
-<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">td</span> <span class="p">{</span> <span class="nl">border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span> <span class="nl">border-width</span><span class="p">:</span> <span class="m">0</span><span class="mi">.1rem</span><span class="p">;</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">2</span><span class="mi">.1rem</span><span class="p">;</span> <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.4rem</span><span class="p">;</span> <span class="p">}</span>
-<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">td</span> <span class="p">{</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">2rem</span><span class="p">;</span> <span class="p">}</span></pre>
+<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">td</span> <span class="p">{</span>
+  <span class="nl">border-style</span><span class="p">:</span> <span class="nb">solid</span><span class="p">;</span>
+  <span class="nl">border-width</span><span class="p">:</span> <span class="m">0</span><span class="mi">.1rem</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.4rem</span> <span class="m">0</span><span class="mi">.4rem</span> <span class="m">0</span><span class="mi">.5rem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">td</span><span class="o">,</span>
+<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">th</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.4rem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">thead</span> <span class="o">+</span> <span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">td</span><span class="o">,</span>
+<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">thead</span> <span class="o">+</span> <span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">th</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.4rem</span> <span class="m">0</span><span class="mi">.4rem</span> <span class="m">0</span><span class="mi">.5rem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">tbody</span> <span class="o">+</span> <span class="nt">tfoot</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">td</span><span class="o">,</span>
+<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">tbody</span> <span class="o">+</span> <span class="nt">tfoot</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">th</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.4rem</span> <span class="m">0</span><span class="mi">.4rem</span> <span class="m">0</span><span class="mi">.5rem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">thead</span> <span class="o">+</span> <span class="nt">tbody</span> <span class="o">+</span> <span class="nt">tfoot</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">td</span><span class="o">,</span>
+<span class="nc">.table--vertical-rhythm-example</span> <span class="nt">thead</span> <span class="o">+</span> <span class="nt">tbody</span> <span class="o">+</span> <span class="nt">tfoot</span> <span class="nt">tr</span><span class="nd">:last-child</span> <span class="nt">th</span> <span class="p">{</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="mi">.4rem</span> <span class="m">0</span><span class="mi">.4rem</span> <span class="m">0</span><span class="mi">.5rem</span><span class="p">;</span>
+<span class="p">}</span></pre>
     </div>
   </div>
 </div>
@@ -1179,12 +1179,11 @@
   </div>
 </div>
     
-      </section>
     </div>
     
     <div class="container">
       <footer class="xs-text-center xs-mb2">
-        <p class="xs-mb1">Made with <span class="text--red">&hearts;</span> at <a href="http://hired.com">HIRED</a></p>
+        <p class="xs-mb1">Made with <i class="fa fa-heart text--red"></i> at <a href="http://hired.com">HIRED</a></p>
         <small>This documentation was generated using <a href="http://github.com/trulia/hologram">Hologram</a></small>
       </footer>
     </div>
