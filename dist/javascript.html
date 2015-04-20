@@ -13,14 +13,14 @@
         <div class="container clearfix">
           <div class="navigationbar__header clearfix">
             <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
-            <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
+            <button class="button xs-inline-block sm-none xs-float-right" data-ft-navigationbar-toggle>
               <i class="fa fa-bars"></i>
             </button>
             <button class="button xs-float-right sm-float-none" id="grid-toggle-button">
               <i class="fa fa-eye-slash"></i>
             </button>
           </div>
-          <nav class="navigationbar__nav navigationbar__nav--is-hidden">
+          <nav class="navigationbar__nav navigationbar__nav--is-hidden" data-ft-navigationbar-nav>
             <ul class="navigationbar__list">
               
               <li class="navigationbar__item">
@@ -54,7 +54,8 @@
 
     
     <label for="sections-off-canvas-toggle" class="page-nav">
-      <i class="fa fa-plus-circle text--info"></i> <span class="text--uppercase xs-epsilon">Javascript nav</span>
+      <i class="fa fa-plus-circle text--info"></i>
+      <span class="text--uppercase xs-epsilon">Javascript nav</span>
     </label>
 
     <div class="off-canvas off-canvas--sections">
@@ -110,22 +111,15 @@
       </nav>
     </div>
     
-    <div class="container">
+    <div class="container xs-mt4">
       <div class="note note--danger xs-mt2">
         This is not a 1.0 release. Things are moving at a fast pace, please note you might have some refactoring to do using this code.
       </div>
     
 <h1 id="js-flashbar" class="styleguide">Flashbar</h1>
-<p class="styleguide">Flashbars are used to inform a user of something after an action and can optionally be dismissed</p>
-<div class="note note--info">
-  <p class="styleguide">Flashbars don't need JavaScript by default, but if you want the flashbar to dismiss without an extra call to the server then you'll want to use the JS Component</p>
-  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
-  <ul class="styleguide">
-    <li><code class="styleguide">data-ft-flashbar</code> on the <code class="styleguide">.flashbar</code> element</li>
-    <li><code class="styleguide">data-ft-flashbar-hide</code> on the <code class="styleguide">.flashbar__hide</code> element</li>
-  </ul>
-</div>
-<p class="styleguide">Below are some events you can listen to:</p><table class="styleguide"> <thead><tr>
+<p class="styleguide">Flashbars are used to inform a user of something after an action. The javascript component allows you to hide the flashbar when an element is clicked, such as a close button.</p><h3 class="styleguide">Data Attributes</h3><ul class="styleguide"><li><code class="styleguide">data-ft-flashbar</code> on the <code class="styleguide">.flashbar</code> element</li>
+<li><code class="styleguide">data-ft-flashbar-hide</code> on the <code class="styleguide">.flashbar__hide</code> element</li>
+</ul><h3 class="styleguide">Events</h3><table class="styleguide"> <thead><tr>
 <th>Event</th>
 <th>Description</th>
 </tr>
@@ -158,7 +152,7 @@
     </div>
   </div>
 </div>
-<table class="styleguide"> <thead><tr>
+<h3 class="styleguide">Modifiers</h3><table class="styleguide"> <thead><tr>
 <th>Class</th>
 <th>Description</th>
 </tr>
@@ -269,15 +263,9 @@
 </div>
 
 <h1 id="js-modal" class="styleguide">Modal</h1>
-<p class="styleguide">Modals are used to block the user from doing any other actions except inside of a focused area of content.</p>
+<p class="styleguide">Modals are used to block the user from doing any other actions except inside of a focused area of content. The javascript component allows you to show the modal by clicking an element, hide the modal by clicking another element, or outside the modal.</p>
 <div class="note note--info">
-  <p class="styleguide">Modals don't need JavaScript by default, but if you want the modal to dismiss without an extra call to the server then you'll want to use the JS Component</p>
-  <p class="styleguide">if you want a modal to have a specific width it's suggested that you set a <code class="styleguide">max-width</code> on an extension class. (Example below)</p>
-  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
-  <ul class="styleguide">
-    <li><code class="styleguide">data-ft-modal</code> on the <code class="styleguide">.modal</code> element</li>
-    <li><code class="styleguide">data-ft-modal-hide</code> on the <code class="styleguide">.modal__hide</code> element</li>
-  </ul>
+  <p class="styleguide">If you would like a modal to have a specific width, it's suggested that you set a <code class="styleguide">max-width</code> on an extension class. (Example below)</p>
 </div>
 <div class="example">
   <div class="example__code">
@@ -290,7 +278,11 @@
     </div>
   </div>
 </div>
-<p class="styleguide">Below are some events you can listen to:</p><table class="styleguide"> <thead><tr>
+<h3 class="styleguide">Data Attributes</h3><ul class="styleguide"><li><code class="styleguide">data-ft-modal</code> on the <code class="styleguide">.modal</code> element</li>
+<li><code class="styleguide">data-ft-modal-show</code> on an element that will show the modal, such as a link or button</li>
+<li><code class="styleguide">data-ft-modal-hide</code> on the <code class="styleguide">.modal__hide</code> element</li>
+<li><code class="styleguide">data-ft-shade</code> on a <code class="styleguide">.shade</code> element at the bottom of the page, if you would like to show a shade darkening the screen outside the modal</li>
+</ul><h3 class="styleguide">Events</h3><table class="styleguide"> <thead><tr>
 <th>event</th>
 <th>description</th>
 </tr>
@@ -327,7 +319,7 @@
   <div class="example__preview">
     <button class="button button--default" data-ft-modal-show="example-modal">Show Modal</button>
 <div class="modal animated" id="example-modal" data-ft-modal data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
-  <div class="modal__content">
+  <div class="modal__content" data-ft-modal-content>
     <button class="modal__hide" data-ft-modal-hide="example-modal">&times;</button>
     <div class="box box--default xs-p1">
       <h1 class="xs-mb1">Hello World</h1>
@@ -348,7 +340,7 @@
     <div class="highlight">
       <pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button--default"</span> <span class="na">data-ft-modal-show=</span><span class="s">"example-modal"</span><span class="nt">&gt;</span>Show Modal<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal animated"</span> <span class="na">id=</span><span class="s">"example-modal"</span> <span class="na">data-ft-modal</span> <span class="na">data-ft-show-class=</span><span class="s">"fadeInDown"</span> <span class="na">data-ft-hide-class=</span><span class="s">"fadeOutUp"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__content"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal__content"</span> <span class="na">data-ft-modal-content</span><span class="nt">&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"modal__hide"</span> <span class="na">data-ft-modal-hide=</span><span class="s">"example-modal"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box box--default xs-p1"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"xs-mb1"</span><span class="nt">&gt;</span>Hello World<span class="nt">&lt;/h1&gt;</span>
@@ -454,14 +446,40 @@
 </div>
 
 <h1 id="js-navigationbar" class="styleguide">Navigationbar</h1>
-<p class="styleguide">The <code class="styleguide">navigationbar</code> object is used for the main navigation of a website.</p>
-<div class="note note--info">
-  <p class="styleguide">Navigationbars don't need JavaScript by default, but if you want the navigationbar to trigger the shade component then you'll want to use the JS Component</p>
-  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
-  <ul class="styleguide">
-    <li><code class="styleguide">data-ft-navigationbar</code> on the <code class="styleguide">.navigationbar</code> element</li>
-    <li><code class="styleguide">data-ft-navigationbar-toggle</code> on the <code class="styleguide">.navigationbar__toggle</code> element</li>
-  </ul>
+<p class="styleguide">The <code class="styleguide">navigationbar</code> object is used for the main navigation of your site or app. The javascript component allows you to show and hide the collapsed mobile navigationbar.</p><h3 class="styleguide">Data Attributes</h3><ul class="styleguide"><li><code class="styleguide">data-ft-navigationbar</code> on the <code class="styleguide">.navigationbar</code> element</li>
+<li><code class="styleguide">data-ft-navigationbar-toggle</code> n the <code class="styleguide">.navigationbar__toggle</code> element</li>
+</ul><h3 class="styleguide">Events</h3><table class="styleguide"> <thead><tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead> <tbody><tr>
+<td><code class="styleguide">show.ft.navigationbar</code></td>
+<td>The navigationbar is going to show</td>
+</tr>
+<tr>
+<td><code class="styleguide">shown.ft.navigationbar</code></td>
+<td>The navigationbar is shown</td>
+</tr>
+<tr>
+<td><code class="styleguide">hide.ft.navigationbar</code></td>
+<td>The navigationbar is going to hide</td>
+</tr>
+<tr>
+<td><code class="styleguide">hidden.ft.navigationbar</code></td>
+<td>The navigationbar is hidden</td>
+</tr>
+</tbody> </table><div class="example">
+  <!-- <script>$(document).on('show.ft.navigationbar', '.navigationbar', function(event) {
+  // do some work
+});
+</script> -->
+  <div class="example__code">
+    <div class="highlight">
+      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.ft.navigationbar'</span><span class="p">,</span> <span class="s1">'.navigationbar'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// do some work</span>
+<span class="p">});</span></pre>
+    </div>
+  </div>
 </div>
 <div class="example">
   <div class="example__preview">
@@ -469,29 +487,29 @@
   <div class="fluid-container clearfix">
     <div class="navigationbar__header clearfix">
       <a class="navigationbar__logo" href="#" target="_self">Fortitude</a>
-      <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
+      <button class="button xs-inline-block sm-none xs-float-right" data-ft-navigationbar-toggle>
         <i class="fa fa-bars"></i>
       </button>
       <button class="button xs-float-right sm-float-none">
         <i class="fa fa-eye-slash"></i>
       </button>
     </div>
-    <nav class="navigationbar__nav navigationbar__nav--is-hidden">
+    <nav class="navigationbar__nav navigationbar__nav--is-hidden" data-ft-navigationbar-nav>
       <ul class="navigationbar__list">
         <li class="navigationbar__item">
-          <a href="#" class="navigationbar__link">Objects</a>
+          <a href="javascript:void(0);" class="navigationbar__link">Objects</a>
         </li>
         <li class="navigationbar__item">
-          <a href="#" class="navigationbar__link">Structure</a>
+          <a href="javascript:void(0);" class="navigationbar__link">Structure</a>
         </li>
         <li class="navigationbar__item">
-          <a href="#" class="navigationbar__link">Utilities</a>
+          <a href="javascript:void(0);" class="navigationbar__link">Utilities</a>
         </li>
         <li class="navigationbar__item">
-          <a href="#" class="navigationbar__link">Javascript</a>
+          <a href="javascript:void(0);" class="navigationbar__link">Javascript</a>
         </li>
         <li class="navigationbar__item xs-prl1 sm-prl0">
-          <a href="#" class="button button--full button--primary">Architecture</a>
+          <a href="javascript:void(0);" class="button button--full button--primary">Architecture</a>
         </li>
       </ul>
     </nav>
@@ -505,29 +523,29 @@
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fluid-container clearfix"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"navigationbar__header clearfix"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navigationbar__logo"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_self"</span><span class="nt">&gt;</span>Fortitude<span class="nt">&lt;/a&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button xs-inline-block sm-none xs-float-right"</span> <span class="na">data-navigationbar-toggle</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button xs-inline-block sm-none xs-float-right"</span> <span class="na">data-ft-navigationbar-toggle</span><span class="nt">&gt;</span>
         <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-bars"</span><span class="nt">&gt;&lt;/i&gt;</span>
       <span class="nt">&lt;/button&gt;</span>
       <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button xs-float-right sm-float-none"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-eye-slash"</span><span class="nt">&gt;&lt;/i&gt;</span>
       <span class="nt">&lt;/button&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navigationbar__nav navigationbar__nav--is-hidden"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navigationbar__nav navigationbar__nav--is-hidden"</span> <span class="na">data-ft-navigationbar-nav</span><span class="nt">&gt;</span>
       <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"navigationbar__list"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Objects<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:void(0);"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Objects<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Structure<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:void(0);"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Structure<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Utilities<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:void(0);"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Utilities<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Javascript<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:void(0);"</span> <span class="na">class=</span><span class="s">"navigationbar__link"</span><span class="nt">&gt;</span>Javascript<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"navigationbar__item xs-prl1 sm-prl0"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"button button--full button--primary"</span><span class="nt">&gt;</span>Architecture<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:void(0);"</span> <span class="na">class=</span><span class="s">"button button--full button--primary"</span><span class="nt">&gt;</span>Architecture<span class="nt">&lt;/a&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
       <span class="nt">&lt;/ul&gt;</span>
     <span class="nt">&lt;/nav&gt;</span>
@@ -538,21 +556,46 @@
 </div>
 
 <h1 id="js-popover" class="styleguide">Popover</h1>
-<p class="styleguide">The <code class="styleguide">popover</code> is used to hide content or navigation behind a clickable element</p>
-<div class="note note--info">
-  <p class="styleguide">Popovers don't need JavaScript by default, but if you have more then 1 popover and you don't want them to all stay shown when clicking on one of them then you'll want to use the JS Component</p>
-  <p class="styleguide">when creating a popover if you add a <code class="styleguide">data-ft-popover</code> and set it to a value all other popovers with that value will hide when one is shown.</p>
-  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
-  <ul class="styleguide">
-    <li><code class="styleguide">data-ft-popover</code> on the <code class="styleguide">.popover</code> element</li>
-    <li><code class="styleguide">data-ft-popover-toggle</code> on the <code class="styleguide">.popover__toggle</code> element</li>
-    <li><code class="styleguide">data-ft-popover-content</code> on the <code class="styleguide">.popover__content</code> element</li>
-  </ul>
-</div>
-
+<p class="styleguide">The popover component is used to hide content or navigation behind a clickable element. You can specify different content to be shown when the popover is shown or hidden via the <code class="styleguide">.popover--is-shown__label</code> and <code class="styleguide">.popover__label</code> elements. You can specify the content of the popover via the <code class="styleguide">.popover__content</code> element. This functionality does <em>not</em> require javascript.</p>
 <div class="note note--warning">
-  <p class="styleguide">make sure to put the <code class="styleguide">.popover--is-shown__label</code> before the <code class="styleguide">.popover__label</code> this is nessasry so that if you only want to just <code class="styleguide">.popover__label</code> you can</p>
-  <p class="styleguide">You have to use a <code class="styleguide">&lt;span&gt;</code> for buttons because the <code class="styleguide">&lt;label&gt;</code> element is used to trigger the checkbox element</p>
+  <p class="styleguide">Put the <code class="styleguide">.popover--is-shown__label</code> element before the <code class="styleguide">.popover__label</code> element. This allows you to specify different html for when the popover is shown and when it is hidden. This functionality does <em class="text--italic">not</em> require javascript.</p>
+  <p class="styleguide">Use a <code class="styleguide">&lt;span&gt;</code> for buttons inside the <code class="styleguide">.popover__label</code> element. The <code class="styleguide">&lt;label&gt;</code> element is used to trigger the checkbox to show or hide the popover without javascript.</p>
+</div>
+<p class="styleguide">The javascript component covers combining popovers into groups, and allowing only one popover per group to be shown at once. For example, if you have multiple drop-down lists in a navigationbar.</p><h3 class="styleguide">Data Attributes</h3><ul class="styleguide"><li><code class="styleguide">data-ft-popover=&quot;group_name&quot;</code> on the <code class="styleguide">.popover</code> element</li>
+<li><code class="styleguide">data-ft-popover-toggle</code> on the <code class="styleguide">.popover__toggle</code> element</li>
+<li><code class="styleguide">data-ft-popover-content</code> on the <code class="styleguide">.popover__content</code> element</li>
+</ul><h3 class="styleguide">Events</h3><table class="styleguide"> <thead><tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead> <tbody><tr>
+<td><code class="styleguide">show.ft.popover</code></td>
+<td>The popover is going to show</td>
+</tr>
+<tr>
+<td><code class="styleguide">shown.ft.popover</code></td>
+<td>The popover is shown</td>
+</tr>
+<tr>
+<td><code class="styleguide">hide.ft.popover</code></td>
+<td>The popover is going to hide</td>
+</tr>
+<tr>
+<td><code class="styleguide">hidden.ft.popover</code></td>
+<td>The popover is hidden</td>
+</tr>
+</tbody> </table><div class="example">
+  <!-- <script>$(document).on('show.ft.popover', '.popover', function(event) {
+  // do some work
+});
+</script> -->
+  <div class="example__code">
+    <div class="highlight">
+      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.ft.popover'</span><span class="p">,</span> <span class="s1">'.popover'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// do some work</span>
+<span class="p">});</span></pre>
+    </div>
+  </div>
 </div>
 <div class="example">
   <div class="example__preview">
@@ -636,17 +679,24 @@
 
 <h1 id="js-screen-lock" class="styleguide">Html screen lock</h1>
 <p class="styleguide">Used to make the contents of a webpage unscrollable.
-This is ideal when presenting content in a modal or similar UX patterns.</p>
-<h1 id="js-select-input" class="styleguide">Select Input</h1>
-<p class="styleguide">Select inputs don&#39;t have placeholders by default, this is a JS Component that allows for them.</p>
-<div class="note note--info">
-  <p class="styleguide">Select inputs don't need JavaScript by default, but if you want select inputs to have placeholders then you'll want to use the JS Component</p>
-  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
-  <ul class="styleguide">
-    <li><code class="styleguide">data-ft-select-input</code> on the <code class="styleguide">.select-input</code> element</li>
-  </ul>
+This is ideal when presenting content in a modal or similar UX patterns.</p><div class="example">
+  <!-- <script>$('.your-component').on('click', function(){
+  $.screenLock();
+});
+</script> -->
+  <div class="example__code">
+    <div class="highlight">
+      <pre><span class="nx">$</span><span class="p">(</span><span class="s1">'.your-component'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">screenLock</span><span class="p">();</span>
+<span class="p">});</span></pre>
+    </div>
+  </div>
 </div>
-<p class="styleguide">Below are some events you can listen to:</p><table class="styleguide"> <thead><tr>
+
+<h1 id="js-select-input" class="styleguide">Select Input</h1>
+<p class="styleguide">Select inputs don&#39;t have placeholders by default. The select input javascript component allows you to set a placeholder element for a select dropdown, and apply an extra class when the placeholder is chosen.</p><h3 class="styleguide">Data Attributes</h3><ul class="styleguide"><li><code class="styleguide">data-ft-select-input</code> on the <code class="styleguide">.select-input</code> element</li>
+<li><code class="styleguide">class=&quot;any-class&quot;</code> on the <code class="styleguide">&lt;option&gt;</code> representing the placeholder</li>
+</ul><p class="styleguide">Fortitude comes with a built-in <code class="styleguide">.placeholder</code> class you can use here.</p><h3 class="styleguide">Events</h3><table class="styleguide"> <thead><tr>
 <th>event</th>
 <th>description</th>
 </tr>
@@ -702,16 +752,10 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
 </div>
 
 <h1 id="js-shade" class="styleguide">Shade</h1>
-<p class="styleguide">The <code class="styleguide">shade</code> object is used to dim the entire website use cases might be to allow the users focus to be on a specific element like navigation or a modal. You can also show and hide the shade using data- attributes, and the shade will automatically hide when clicked on.</p>
-<div class="note note--info">
-  <p class="styleguide">Shades don't need JavaScript by default, but if you want the shade to show and dismiss without an extra call to the server, then you'll want to use the JS Component</p>
-  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
-  <ul class="styleguide">
-    <li><code class="styleguide">data-ft-shade-show</code> on any element</li>
-    <li><code class="styleguide">data-ft-shade-hide</code> on any element</li>
-  </ul>
-</div>
-<p class="styleguide">Below are some events you can listen to:</p><table class="styleguide"> <thead><tr>
+<p class="styleguide">The shade component is used to dim the entire website, which can help the user focus on a specific element such as navigation or a modal. The javascript allows you to show and hide the shade by clicking on elements, and hides the shade when it is clicked on.</p><h3 class="styleguide">Data Attributes</h3><ul class="styleguide"><li><code class="styleguide">data-ft-shade</code> on the <code class="styleguide">.shade</code> element</li>
+<li><code class="styleguide">data-ft-shade-show</code> on an element to show the shade when clicked</li>
+<li><code class="styleguide">data-ft-shade-hide</code> on an element to hide the shade when clicked</li>
+</ul><h3 class="styleguide">Events</h3><table class="styleguide"> <thead><tr>
 <th>event</th>
 <th>description</th>
 </tr>
@@ -757,56 +801,66 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
 </div>
 
 <h1 id="js-tabs" class="styleguide">Tabs</h1>
-<p class="styleguide">Tabs are used to navigate between different sections of content in a tabbed interface.</p>
+<p class="styleguide">The tabs and tabs-navigation components are used to navigate between different sections of content in a tabbed interface.</p><h3 class="styleguide">Data Attributes</h3><ul class="styleguide"><li><code class="styleguide">data-ft-tabs</code> on the parent <code class="styleguide">.tabs</code> element</li>
+<li><code class="styleguide">data-ft-tabs-navigation-link</code> on each <code class="styleguide">.tabs-navigation__link</code> elements</li>
+<li><code class="styleguide">data-ft-tabs-content</code> on each <code class="styleguide">.tabs__content</code> element</li>
+</ul>
 <div class="note note--info">
-  <p class="styleguide">Tabs don't need JavaScript by default, but if you want the tabs to switch without an extra call to the server then you'll want to use the JS Component</p>
-  <p class="styleguide">You must provide the following data attributes if you want the JS component to work</p>
-  <ul class="styleguide">
-    <li><code class="styleguide">data-ft-tabs</code> on the <code class="styleguide">.tabs</code> element</li>
-    <li><code class="styleguide">data-ft-tabs-content</code> on the <code class="styleguide">.tabs__content</code> element</li>
-  </ul>
+  <p class="styleguide">By default, the tabs-navigation javascript will show and hide tabs based on their order in the html. To link a <code class="styleguide">.tabs-navigation__link</code> element to a tab somewhere else, set the <code class="styleguide">data-ft-tabs-navigation-link</code> attribute to the id of the linked tab.</p>
 </div>
-
-<div class="note note--warning">
-  <p class="styleguide">This component depends on the <code class="styleguide">tabs-navigation</code> component</p>
-</div>
-<p class="styleguide">Below are some events you can listen to:</p><table class="styleguide"> <thead><tr>
+<h3 class="styleguide">Events</h3><table class="styleguide"> <thead><tr>
 <th>event</th>
 <th>description</th>
 </tr>
 </thead> <tbody><tr>
-<td><code class="styleguide">show.ft.tabs</code></td>
-<td>The tabs will show a tab</td>
+<td><code class="styleguide">show.ft.tab</code></td>
+<td>This tab navigation link is being changed to the active state</td>
 </tr>
 <tr>
-<td><code class="styleguide">shown.ft.tabs</code></td>
-<td>The tabs is showing a tab</td>
+<td><code class="styleguide">shown.ft.tab</code></td>
+<td>This tab navigation link is in the active state</td>
 </tr>
 <tr>
-<td><code class="styleguide">hide.ft.tabs</code></td>
-<td>The tabs will hide a tab</td>
+<td><code class="styleguide">hide.ft.tab</code></td>
+<td>This tab navigation link is being changed to the inactive state</td>
 </tr>
 <tr>
-<td><code class="styleguide">hidden.ft.tabs</code></td>
-<td>The tabs is hiding a tab</td>
+<td><code class="styleguide">hidden.ft.tab</code></td>
+<td>This tab navigation link is in the inactive state</td>
+</tr>
+<tr>
+<td><code class="styleguide">show.ft.tabtarget</code></td>
+<td>This tab content is being shown</td>
+</tr>
+<tr>
+<td><code class="styleguide">shown.ft.tabtarget</code></td>
+<td>This tab content is shown</td>
+</tr>
+<tr>
+<td><code class="styleguide">hide.ft.tabtarget</code></td>
+<td>This tab content is being hidden</td>
+</tr>
+<tr>
+<td><code class="styleguide">hidden.ft.tabtarget</code></td>
+<td>This tab content is hidden</td>
 </tr>
 </tbody> </table><div class="example">
-  <!-- <script>$(document).on('show.ft.tabs', '.tabs', function(event, tabIndex) {
+  <!-- <script>$(document).on('show.ft.tab', '.tabs', function(event, tabIndex) {
   // do some work
 });
 </script> -->
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.ft.tabs'</span><span class="p">,</span> <span class="s1">'.tabs'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">tabIndex</span><span class="p">)</span> <span class="p">{</span>
+      <pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.ft.tab'</span><span class="p">,</span> <span class="s1">'.tabs'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">tabIndex</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// do some work</span>
 <span class="p">});</span></pre>
     </div>
   </div>
 </div>
-<h3 class="styleguide">Default</h3><div class="example">
+<div class="example">
   <div class="example__preview">
-    <nav class="tabs tabs--default" data-ft-tabs data-ft-show-class="fadeInDown" data-ft-hide-class="fadeOutUp">
-  <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default">
+    <nav class="tabs tabs--default" data-ft-tabs>
+  <ul class="tabs-navigation tabs-navigation--fixed tabs-navigation--default xs-mb1">
     <li class="tabs-navigation__item tabs-navigation__item--is-active">
       <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 1</a>
     </li>
@@ -817,22 +871,28 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
       <a href="javascript: void(0);" class="tabs-navigation__link" data-ft-tabs-navigation-link>Tab 3</a>
     </li>
   </ul>
-  <div class="tabs__content tabs__content--is-shown" data-ft-tabs-content>
-    Content for tab 1
+  <div class="tabs__content tabs__content--is-shown xs-text-center" data-ft-tabs-content>
+    <div class="box box--default xs-p1 xs-text-center">
+      Content for tab 1
+    </div>
   </div>
-  <div class="tabs__content" data-ft-tabs-content>
-    Content for tab 2
+  <div class="tabs__content xs-text-center" data-ft-tabs-content>
+    <div class="box box--info xs-p1 xs-text-center">
+      Content for tab 2
+    </div>
   </div>
-  <div class="tabs__content" data-ft-tabs-content>
-    Content for tab 3
+  <div class="tabs__content xs-text-center" data-ft-tabs-content>
+    <div class="box box--inverse xs-p1 xs-text-center">
+      Content for tab 3
+    </div>
   </div>
 </nav>
 
   </div>
   <div class="example__code">
     <div class="highlight">
-      <pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"tabs tabs--default"</span> <span class="na">data-ft-tabs</span> <span class="na">data-ft-show-class=</span><span class="s">"fadeInDown"</span> <span class="na">data-ft-hide-class=</span><span class="s">"fadeOutUp"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tabs-navigation tabs-navigation--fixed tabs-navigation--default"</span><span class="nt">&gt;</span>
+      <pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"tabs tabs--default"</span> <span class="na">data-ft-tabs</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"tabs-navigation tabs-navigation--fixed tabs-navigation--default xs-mb1"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"tabs-navigation__item tabs-navigation__item--is-active"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: void(0);"</span> <span class="na">class=</span><span class="s">"tabs-navigation__link"</span> <span class="na">data-ft-tabs-navigation-link</span><span class="nt">&gt;</span>Tab 1<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/li&gt;</span>
@@ -843,14 +903,20 @@ This is ideal when presenting content in a modal or similar UX patterns.</p>
       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript: void(0);"</span> <span class="na">class=</span><span class="s">"tabs-navigation__link"</span> <span class="na">data-ft-tabs-navigation-link</span><span class="nt">&gt;</span>Tab 3<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/li&gt;</span>
   <span class="nt">&lt;/ul&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs__content tabs__content--is-shown"</span> <span class="na">data-ft-tabs-content</span><span class="nt">&gt;</span>
-    Content for tab 1
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs__content tabs__content--is-shown xs-text-center"</span> <span class="na">data-ft-tabs-content</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box box--default xs-p1 xs-text-center"</span><span class="nt">&gt;</span>
+      Content for tab 1
+    <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs__content"</span> <span class="na">data-ft-tabs-content</span><span class="nt">&gt;</span>
-    Content for tab 2
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs__content xs-text-center"</span> <span class="na">data-ft-tabs-content</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box box--info xs-p1 xs-text-center"</span><span class="nt">&gt;</span>
+      Content for tab 2
+    <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs__content"</span> <span class="na">data-ft-tabs-content</span><span class="nt">&gt;</span>
-    Content for tab 3
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs__content xs-text-center"</span> <span class="na">data-ft-tabs-content</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box box--inverse xs-p1 xs-text-center"</span><span class="nt">&gt;</span>
+      Content for tab 3
+    <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/nav&gt;</span></pre>
     </div>
