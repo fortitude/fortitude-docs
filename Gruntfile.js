@@ -20,6 +20,10 @@ module.exports = function(grunt) {
       }
     },
 
+    clean: {
+      hologram: ['tmp', 'dist']
+    },
+
     copy: {
       hologram: {
         files: [
@@ -69,6 +73,17 @@ module.exports = function(grunt) {
           }
         ]
       },
+      
+      finalize: {
+        files: [
+          {
+            expand: true,
+            cwd: '.',
+            src: ['CNAME'],
+            dest: '<%= app.dist %>'
+          }
+        ]
+      }
     },
 
     connect: {
@@ -88,7 +103,7 @@ module.exports = function(grunt) {
         files: [
           '<%= app.fortitude %>/app/assets/stylesheets/**/*.scss',
           '<%= app.fortitude %>/app/assets/javascripts/**/*.js',
-          'src/**/*'
+          'src/**/*.*'
         ],
         tasks: ['build']
       }
@@ -137,6 +152,24 @@ module.exports = function(grunt) {
           '<%= app.tmp %>/assets/javascripts/index.js' : '<%= app.tmp %>/bundle.js'
         }
       }
+    },
+
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        connectCommits: false,
+        tag: '<%= pkg.version %>',
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      
+      hologram: {
+        options: {
+          remote: 'git@github.com:fortitude/fortitude-docs.git',
+          branch: 'gh-pages'
+        }
+      }
     }
   });
 
@@ -144,6 +177,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-build-control');
 
   // Sass resources
   grunt.loadNpmTasks('grunt-contrib-sass');
@@ -161,8 +195,9 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('build', ['copy:hologram', 'sass:hologram', 'autoprefixer:hologram', 'concat:hologram', 'uglify:hologram', 'hologram']);
+  grunt.registerTask('build', ['clean', 'copy:hologram', 'sass:hologram', 'autoprefixer:hologram', 'concat:hologram', 'uglify:hologram', 'hologram', 'copy:finalize']);
   grunt.registerTask('serve', ['build', 'connect', 'watch']);
+  grunt.registerTask('deploy', ['build', 'buildcontrol:hologram']);
 
 
 };
