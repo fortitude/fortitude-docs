@@ -1,6 +1,3 @@
-h1.styleguide,
-h2.styleguide,
-h3.styleguide,
 p.styleguide,
 table.styleguide {
   margin-right: 2rem;
@@ -11,8 +8,11 @@ table.styleguide {
 h1.styleguide,
 h2.styleguide,
 h3.styleguide {
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-bottom: $base-spacing-unit;
   line-height: 4 * $base-spacing-unit;
-  padding-top: 6 * $base-spacing-unit;
+  padding-top: 2 * $base-spacing-unit;
 }
 
 ul.styleguide {

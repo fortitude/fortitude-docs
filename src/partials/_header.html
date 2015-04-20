@@ -13,14 +13,14 @@
         <div class="container clearfix">
           <div class="navigationbar__header clearfix">
             <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
-            <button class="button xs-inline-block sm-none xs-float-right" data-navigationbar-toggle>
+            <button class="button xs-inline-block sm-none xs-float-right" data-ft-navigationbar-toggle>
               <i class="fa fa-bars"></i>
             </button>
             <button class="button xs-float-right sm-float-none" id="grid-toggle-button">
               <i class="fa fa-eye-slash"></i>
             </button>
           </div>
-          <nav class="navigationbar__nav navigationbar__nav--is-hidden">
+          <nav class="navigationbar__nav navigationbar__nav--is-hidden" data-ft-navigationbar-nav>
             <ul class="navigationbar__list">
               <% @categories.each do |category, file_name| %>
               <li class="navigationbar__item">
@@ -42,7 +42,8 @@
 
     <% if parent_blocks.any? %>
     <label for="sections-off-canvas-toggle" class="page-nav">
-      <i class="fa fa-plus-circle text--info"></i> <span class="text--uppercase xs-epsilon"><%= title %> nav</span>
+      <i class="fa fa-plus-circle text--info"></i>
+      <span class="text--uppercase xs-epsilon"><%= title %> nav</span>
     </label>
 
     <div class="off-canvas off-canvas--sections">
@@ -72,7 +73,7 @@
       </nav>
     </div>
     <% end %>
-    <div class="container">
+    <div class="container xs-mt4">
       <div class="note note--danger xs-mt2">
         This is not a 1.0 release. Things are moving at a fast pace, please note you might have some refactoring to do using this code.
       </div>

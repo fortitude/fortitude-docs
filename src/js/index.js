@@ -15,6 +15,28 @@
     }
 }());
 
+(function($){
+
+  var $body = $('body'),
+      $toggle = $('#sections-off-canvas-toggle'),
+      $offCanvas = $('.off-canvas'),
+      $nav = $('.page-nav');
+
+  $body.on('click', function(evt){
+    var $target = $(evt.target);
+    
+    if($target.closest('.off-canvas').length ||
+       $target.closest('.page-nav').length ||
+       $target.closest('#grid-toggle-button').length){
+
+      return;
+    }
+
+    $toggle.prop('checked', false);
+  });
+
+})(jQuery);
+
 (function($, requestAnimationFrame) {
   var opacity = 1;
   var $pageNavLabel = $('.page-nav > span');
