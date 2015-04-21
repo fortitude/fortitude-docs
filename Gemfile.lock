@@ -9,7 +9,7 @@ GIT
 PATH
   remote: ~/Workspace/fortitude-sass
   specs:
-    fortitude-sass (0.7.2)
+    fortitude-sass (0.8.0)
       autoprefixer-rails
       execjs
       sass (~> 3.3)

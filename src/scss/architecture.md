@@ -63,8 +63,15 @@ Fortitude is a mobile-first framework. The components work great on screens of a
 
 ## Don't fight the browser
 
-CSS has a lot of "quirks" when you're first learning it. How the rendering engine handles spacing for block vs inline elements is often a mystery for beginners. Vertical alignment can be a headache. Small browser differences can result in pushing elements around by 1px here and there. Oftentimes, front-end engineers resort to using a "CSS Reset" rather than working with the browser's layout engine.
+Your web browser is built by people. Smart people, and what you might think is a defect in your CSS there actually might be a very good reason something was set as a default.
+Rather than just wiping all default browser styles out you should make sure you understand why something is the way it is.
 
 Starting out in CSS is like coming into a new codebase. You think: "All this legacy code is terrible!" But often, there are reasons for why "bad" code is there. While it may seem bad, it's code that *works* in the wild. If you started from scratch, you would encounter the same bugs and edge cases, and end up with a similar amount of code bloat.
 
-Fortitude works with the browser's layout engine wherever possible, and only irons out implementations where there are browser differences. A lot of CSS's "quirks" are there for a reason, and Fortitude will flow along with it. Finding out why the browser renders the way it does can be a great learning experience.
+So think about that when you&rsquo;re making decisions in writing code.
+
+a good example of this is inside of a framework like bootstrap they made classes like `.hidden` and `.visible` there is no problem with the hidden class but the visible class is ambigous because you might want a element with the display of `block`, `inline-block`, `table`, or any of the other types.
+
+We also try to take this approach with state classes like having `.navigationbar__nav--is-hidden` being applied in the markup and then removed via JS.
+
+This is a little more work, but ultimately saves you from headaches and code refactors for when you introduce new features.

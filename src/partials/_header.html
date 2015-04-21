@@ -1,9 +1,10 @@
+<% extra_pages = @pages.keys %>
+<% extra_pages.delete('index.html') %>
 <!doctype html>
 <html>
   <head>
     <title>Fortitude<%= " | #{title}" unless title.empty? %></title>
     <link rel="stylesheet" href="./stylesheets/index.css">
-    <!-- <link rel="stylesheet" href="http://basehold.it/10"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
   </head>
@@ -22,14 +23,24 @@
           </div>
           <nav class="navigationbar__nav navigationbar__nav--is-hidden" data-ft-navigationbar-nav>
             <ul class="navigationbar__list">
-              <% @categories.each do |category, file_name| %>
               <li class="navigationbar__item">
-                <a href="<%= file_name %>" class="navigationbar__link"><%= category %></a>
+                <a href="javascript: void(0);" class="navigationbar__link">
+                  Components <i class="fa fa-caret-down" style="margin-left: 0.5rem;"></i>
+                </a>
+                <ul class="navigationbar__dropdown">
+                  <% @categories.each do |category, file_name| %>
+                  <% extra_pages.delete(file_name) %>
+                  <li class="navigationbar__item">
+                    <a href="<%= file_name %>" class="navigationbar__link"><%= category %></a>
+                  </li>
+                  <% end %>
+                </ul>
+              </li>
+              <% extra_pages.each do |file_name| %>
+              <li class="navigationbar__item">
+                <a href="<%= file_name %>" class="navigationbar__link"><%= file_name.gsub('.html', '').gsub('_', ' ').split.map(&:capitalize).join(' ') %></a>
               </li>
               <% end %>
-              <li class="navigationbar__item xs-prl1 sm-prl0">
-                <a href="architecture.html" class="button button--full button--primary">Architecture</a>
-              </li>
             </ul>
           </nav>
         </div>
