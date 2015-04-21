@@ -1,4 +1,4 @@
-<div class="box box--inverse xs-ptb8" style="background-image: url('/images/index/hero.png'); background-repeat: no-repeat; background-position: center 8rem; background-attachment: fixed;">
+<div class="box box--inverse xs-ptb8" style="background-image: url('images/index/hero.png'); background-repeat: no-repeat; background-position: center 8rem; background-attachment: fixed;">
   <div class="container xs-ptb8 xs-prl2 sm-prl0">
     <div class="xs-alpha xs-inset4 xs-mtb4">Fortitude</div>
     <div class="xs-gamma xs-inset4 xs-mb4">Stylesheets at Scale</div>
@@ -13,7 +13,7 @@
 <div class="box">
   <div class="container xs-prl1 sm-prl0">
     <div class="layout layout--large"><div class="layout__item sm-6of12 lg-4of12 xs-mb6">
-      <img alt="See all the things, all the time" class="xs-block xs-mrlauto xs-mb4" src="/images/index/sections/see-all-the-things-all-the-time.png" width="260" height="260">
+      <img alt="See all the things, all the time" class="xs-block xs-mrlauto xs-mb4" src="images/index/sections/see-all-the-things-all-the-time.png" width="260" height="260">
       <h3 class="xs-gamma xs-inset2 xs-mb2">
         See all the things, all the time
       </h3>
@@ -23,7 +23,7 @@
         without having to dive into the CSS
       </p>
     </div><div class="layout__item sm-6of12 lg-4of12 xs-mb6">
-      <img alt="Vertical Rhythm" class="xs-block xs-mrlauto xs-mb4" src="/images/index/sections/vertical-rhythm.png" width="260" height="260">
+      <img alt="Vertical Rhythm" class="xs-block xs-mrlauto xs-mb4" src="images/index/sections/vertical-rhythm.png" width="260" height="260">
       <h3 class="xs-gamma xs-inset2 xs-mb2">
         Vertical Rhythm
       </h3>
@@ -35,7 +35,7 @@
         size.
       </p>
     </div><div class="layout__item sm-6of12 lg-4of12 xs-mb6">
-      <img alt="BEM Naming Conventions" class="xs-block xs-mrlauto xs-mb4" src="/images/index/sections/bem-naming-conventions.png" width="260" height="260">
+      <img alt="BEM Naming Conventions" class="xs-block xs-mrlauto xs-mb4" src="images/index/sections/bem-naming-conventions.png" width="260" height="260">
       <h3 class="xs-gamma xs-inset2 xs-mb2">
         BEM Naming Conventions
       </h3>
@@ -45,7 +45,7 @@
         follow consistent conventions.
       </p>
     </div><div class="layout__item sm-6of12 lg-4of12 xs-mb6">
-      <img alt="Don't fight the cascade" class="xs-block xs-mrlauto xs-mb4" src="/images/index/sections/dont-fight-the-cascade.png" width="260" height="260">
+      <img alt="Don't fight the cascade" class="xs-block xs-mrlauto xs-mb4" src="images/index/sections/dont-fight-the-cascade.png" width="260" height="260">
       <h3 class="xs-gamma xs-inset2 xs-mb2">
         Don't fight the cascade
       </h3>
@@ -56,7 +56,7 @@
         your current stylesheets.
       </p>
     </div><div class="layout__item sm-6of12 lg-4of12 xs-mb6">
-      <img alt="Build however you want" class="xs-block xs-mrlauto xs-mb4" src="/images/index/sections/build-however-you-want.png" width="260" height="260">
+      <img alt="Build however you want" class="xs-block xs-mrlauto xs-mb4" src="images/index/sections/build-however-you-want.png" width="260" height="260">
       <h3 class="xs-gamma xs-inset2 xs-mb2">
         Build however you want
       </h3>
@@ -66,7 +66,7 @@
         Build your site's design on top, any way you want.
       </p>
     </div><div class="layout__item sm-6of12 lg-4of12 xs-mb6">
-      <img alt="For CSS Wizards only" class="xs-block xs-mrlauto xs-mb4" src="/images/index/sections/for-css-wizards-only.png" width="260" height="260">
+      <img alt="For CSS Wizards only" class="xs-block xs-mrlauto xs-mb4" src="images/index/sections/for-css-wizards-only.png" width="260" height="260">
       <h3 class="xs-gamma xs-inset2 xs-mb2">
         Everyone's a Wizard
       </h3>
