@@ -1,0 +1,98 @@
+
+
+<!doctype html>
+<html>
+  <head>
+    <title>Fortitude</title>
+    <link rel="stylesheet" href="./stylesheets/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  </head>
+  <body>
+    <header class="container--fixed-top fluid-container">
+      <nav class="navigationbar navigationbar--default" data-ft-navigationbar>
+        <div class="container clearfix">
+          <div class="navigationbar__header clearfix">
+            <a class="navigationbar__logo" href="/" target="_self">Fortitude</a>
+            <button class="button xs-inline-block sm-none xs-float-right" data-ft-navigationbar-toggle>
+              <i class="fa fa-bars"></i>
+            </button>
+            <button class="button xs-float-right sm-float-none" id="grid-toggle-button">
+              <i class="fa fa-eye-slash"></i>
+            </button>
+          </div>
+          <nav class="navigationbar__nav navigationbar__nav--is-hidden" data-ft-navigationbar-nav>
+            <ul class="navigationbar__list">
+              <li class="navigationbar__item">
+                <a href="javascript: void(0);" class="navigationbar__link">
+                  Components <i class="fa fa-caret-down" style="margin-left: 0.5rem;"></i>
+                </a>
+                <ul class="navigationbar__dropdown">
+                  
+                  
+                  <li class="navigationbar__item">
+                    <a href="objects.html" class="navigationbar__link">Objects</a>
+                  </li>
+                  
+                  
+                  <li class="navigationbar__item">
+                    <a href="structure.html" class="navigationbar__link">Structure</a>
+                  </li>
+                  
+                  
+                  <li class="navigationbar__item">
+                    <a href="utilities.html" class="navigationbar__link">Utilities</a>
+                  </li>
+                  
+                  
+                  <li class="navigationbar__item">
+                    <a href="javascript.html" class="navigationbar__link">Javascript</a>
+                  </li>
+                  
+                </ul>
+              </li>
+              
+              <li class="navigationbar__item">
+                <a href="architecture.html" class="navigationbar__link">Architecture</a>
+              </li>
+              
+              <li class="navigationbar__item">
+                <a href="getting_started.html" class="navigationbar__link">Getting Started</a>
+              </li>
+              
+            </ul>
+          </nav>
+        </div>
+      </nav>
+    </header>
+
+    
+    
+    
+
+    
+    <div class="container xs-mt4">
+      <div class="note note--danger xs-mt2">
+        This is not a 1.0 release. Things are moving at a fast pace, please note you might have some refactoring to do using this code.
+      </div>
+    
+<h1 class="styleguide">Getting Started</h1><h2 class="styleguide">Rails Projects</h2><ol class="styleguide"><li>add the gem to your gemfile
+<code class="styleguide">gem &#39;fortitude-sass&#39;</code></li>
+<li><code class="styleguide">bundle install</code></li>
+<li>rename <code class="styleguide">application.css</code> to <code class="styleguide">application.css.scss</code></li>
+<li>add an import statement <code class="styleguide">@import &quot;fortitude&quot;;</code></li>
+<li>add a <code class="styleguide">_overrides.scss</code> in <code class="styleguide">app/assets/stylesheets/settings/</code> (this is where all over your overrides to fortitude will go)</li>
+<li>import <code class="styleguide">@import &quot;settings/overrides&quot;</code> in the <code class="styleguide">application.css.scss</code></li>
+</ol><h2 class="styleguide">Non Rails Projects</h2><p class="styleguide">check out the fortitude <a class="styleguide" href="https://github.com/fortitude/fortitude-docs" title="https://github.com/fortitude/fortitude-docs">starter project</a></p><h2 class="styleguide">Extras</h2><p class="styleguide">if you want a theme provided for you use <code class="styleguide">@import &quot;fortitude/theme&quot;</code> instead of <code class="styleguide">@import &quot;fortitude&quot;</code></p>    
+    </div>
+    
+    <div class="container">
+      <footer class="xs-text-center xs-mb2">
+        <p class="xs-mb1">Made with <i class="fa fa-heart text--red"></i> at <a href="http://hired.com">HIRED</a></p>
+        <small>This documentation was generated using <a href="http://github.com/trulia/hologram">Hologram</a></small>
+      </footer>
+    </div>
+    <div class="shade animated" data-ft-hide-class="fadeOut" data-ft-show-class="fadeIn" data-ft-shade></div>
+    <script src="./javascripts/index.js"></script>
+  </body>
+</html>
